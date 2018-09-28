@@ -40,4 +40,22 @@
     </navigator>
   </view>
 
+  <view>
+    <text>-------云函数---------</text>
+  </view>
+
+  <!-- 云函数示例 -->
+  <view class='uploader'>
+    <button bindtap='getCloudFun'>调用云函数</button>
+  </view>
+
+  <view style='margin-top:30rpx;'>
+    <text>-------数据库---------</text>
+  </view>
+
+  <!-- 添加到数据库 -->
+  <view class='uploader'>
+    <input class='addToDB' placeholder='你的名字是' type='text' bindinput='addName'>插入数据</input>
+    <button class='addToDBButton' bindtap='addToMyDB'>确定</button>
+  </view>
 </view>

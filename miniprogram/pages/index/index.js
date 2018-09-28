@@ -7,7 +7,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    myName: ''
   },
 
   onLoad: function() {
@@ -33,6 +34,44 @@ Page({
           })
         }
       }
+    })
+  },
+
+  // 数据库添加数据
+  addToMyDB: function(){
+    const db = wx.cloud.database()
+    db.collection('fruitStore').add({
+      data:{
+        name: this.data.myName
+      },
+      success:res=>{
+        console.log(res)
+        wx.showToast({
+          title: '新增成功',
+        })
+      },
+      fail:err=>{
+        console.error(err)
+      }
+    })
+  },
+
+  // 获取input信息
+  addName: function(e){
+    this.setData({
+      myName: e.detail.value
+    })
+  },
+
+  // 调用自建云函数
+  getCloudFun: function(){
+    wx.cloud.callFunction({
+      name: 'add',
+      data: {
+      }
+    })
+    .then(res => {
+      console.log(res)
     })
   },
 

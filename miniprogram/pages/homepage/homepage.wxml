@@ -1,0 +1,10 @@
+<!--miniprogram/pages/homepage/homepage.wxml-->
+
+<!--搜索框-->
+<mySearch></mySearch>
+
+<!-- 轮播图 -->
+
+<view style='margin-top:200rpx;'>
+  <button bindtap='uploadImg'>上传图片</button>
+</view>
