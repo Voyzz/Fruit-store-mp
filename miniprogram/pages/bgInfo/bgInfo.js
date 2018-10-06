@@ -1,4 +1,6 @@
 // miniprogram/pages/bgInfo/bgInfo.js
+const app = getApp()
+
 Page({
 
   /**
@@ -8,11 +10,22 @@ Page({
 
   },
 
+  // 获取水果信息表单
+  addFruitInfo: function(e){
+    app.addRowToSet('fruit-board', e.detail.value,e=>{
+      console.log(e)
+      wx.showToast({
+        title: '添加成功',
+      })
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(app)
   },
 
   /**

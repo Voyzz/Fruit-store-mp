@@ -9,12 +9,12 @@
   z-index:500;
   width: 100%;
   height: 100rpx;
-  background: gray;
+  background: rgba(128, 128, 128, 0);
   display: flex;
   flex-direction: column;
 }
 .search-content{
-   background: white;
+   background: rgba(255, 255, 255, 0.959);
    width:650rpx;
    display: flex;
    flex-direction: row;
@@ -39,7 +39,7 @@
   width: 150rpx;
   height: 70rpx;
   margin-right: 0rpx;
-  background-color:blueviolet;
+  background-color:rgba(226, 43, 211, 0.973);
   font-size: 28rpx;
   align-items: center;
   border-top-left-radius: 0rpx;

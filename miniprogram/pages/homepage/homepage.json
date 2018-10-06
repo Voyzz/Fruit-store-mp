@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "金平路水果店",
   "usingComponents": {
-    "mySearch":"/components/search/search"
+    "mySearch":"/components/search/search",
+    "swiper": "/components/swiper/swiper"
   }
 }

@@ -1,2 +1,10 @@
 /* miniprogram/pages/homepage/homepage.wxss */
+.swiperContainer{
+  width: 750prx;
+  height: 500rpx;
+}
+.fruit-board {margin-top: 10rpx}
+
+.fruit-card {width: 350rpx;height: 300rpx;}
+.fruit-card image {width: 100%;height: 200rpx;}
 

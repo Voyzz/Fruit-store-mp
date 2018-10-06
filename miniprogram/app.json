@@ -2,21 +2,41 @@
   "cloud": true,
   "pages": [
     "pages/homepage/homepage",
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
     "pages/bgManage/bgManage",
-    "pages/bgInfo/bgInfo"
+    "pages/bgInfo/bgInfo",
+    "pages/cart/cart",
+    "pages/me/me"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#000000",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarBackgroundColor": "#F0F8FF",
+    "navigationBarTitleText": "Fruit-store",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#EEAD0E",
+    "color": "#878787",
+    "backgroundColor": "#F0F8FF",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "水果",
+        "iconPath": "images/tabBar/homepage-sel.png",
+        "selectedIconPath": "images/tabBar/homepage.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/tabBar/cart-sel.png",
+        "selectedIconPath": "images/tabBar/cart.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/tabBar/me-sel.png",
+        "selectedIconPath": "images/tabBar/me.png"
+      }
+    ]
   }
 }

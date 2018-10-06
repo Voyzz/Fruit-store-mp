@@ -1,1 +1,4 @@
 /* miniprogram/pages/bgInfo/bgInfo.wxss */
+.bgInfo {background: rgb(224, 223, 223)}
+
+.fruit-board {background: white;margin: 30rpx;border: 1px solid white;border-radius: 10rpx;}

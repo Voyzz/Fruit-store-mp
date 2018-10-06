@@ -1,4 +1,4 @@
-// pages/deployFunctions/deployFunctions.js
+// miniprogram/pages/me/me.js
 Page({
 
   /**
