@@ -35,6 +35,26 @@ App({
     })
   },
 
+  // 从集合中筛选数据
+  getInfoWhere: function (setName,ruleObj,callback) {
+    const db = wx.cloud.database()
+    db.collection(setName).where(ruleObj)
+      .get({
+        success: callback,
+        fail: console.error
+      })
+  },
+
+  // 排序后取出数据
+  getInfoByOrder: function (setName, ruleItem, orderFuc,callback) {
+    const db = wx.cloud.database()
+    db.collection(setName)
+      .orderBy(ruleItem, orderFuc)
+      .get()
+      .then(callback)
+      .catch(console.error)
+  },
+
   // 上传图片到云端（云端文件夹，云端文件名，文件临时地址）
   upToClound: (imgFolder, imgName, myFilePath) => {
     wx.cloud.uploadFile({

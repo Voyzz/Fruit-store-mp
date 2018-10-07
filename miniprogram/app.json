@@ -8,16 +8,16 @@
     "pages/me/me"
   ],
   "window": {
-    "backgroundColor": "#000000",
+    "backgroundColor": "#F0F0F0",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F0F8FF",
+    "navigationBarBackgroundColor": "#FFFACD",
     "navigationBarTitleText": "Fruit-store",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "selectedColor": "#EEAD0E",
     "color": "#878787",
-    "backgroundColor": "#F0F8FF",
+    "backgroundColor": "#FFFACD",
     "list": [
       {
         "pagePath": "pages/homepage/homepage",
@@ -32,7 +32,7 @@
         "selectedIconPath": "images/tabBar/cart.png"
       },
       {
-        "pagePath": "pages/me/me",
+        "pagePath": "pages/bgInfo/bgInfo",
         "text": "我的",
         "iconPath": "images/tabBar/me-sel.png",
         "selectedIconPath": "images/tabBar/me.png"

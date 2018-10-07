@@ -1,10 +1,36 @@
 /* miniprogram/pages/homepage/homepage.wxss */
-.swiperContainer{
-  width: 750prx;
-  height: 500rpx;
-}
+page {background-color: rgb(245, 249, 253)}
+
+/* 轮播图 */
+.swiperContainer {width: 750prx;height: 500rpx;}
 .fruit-board {margin-top: 10rpx}
 
-.fruit-card {width: 350rpx;height: 300rpx;}
-.fruit-card image {width: 100%;height: 200rpx;}
+
+/* 分类列表 */
+.type-container {background-color: white;display: flex;justify-content: space-between;padding: 0 20rpx;}
+.type-container .type-item{width: 150rpx;height: 80rpx;}
+.type-container .type-item view{font-size: 25rpx;text-align: center;line-height: 80rpx;}
+.type-container .type-item .type-item-on {border-bottom: 5rpx rgba(226, 43, 211, 0.973) solid}
+
+
+/* 商品图 */
+.fruit-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 710rpx;
+  margin: 20rpx;
+  overflow: hidden;}
+.fruit-item {width: 345rpx;overflow: hidden;border-radius: 10rpx;margin-bottom: 20rpx;background-color: white}
+.fruit-item .fruit-image {height: 350rpx;width: 345rpx;border:1rpx;}
+.fruit-item .fruit-image image {height: 100%;width: 100%}
+.fruit-item .fruit-info {margin: 15rpx 0 10rpx 10rpx;}
+.fruit-item .fruit-info .name {display:block;font-size:35rpx;}
+.fruit-item .fruit-info .line2 {display: flex;margin-top: 10rpx;}
+.fruit-item .fruit-info .price {width: 200rpx;font-size:35rpx;color:#EE6A50}
+.fruit-item .fruit-info .like-image {width: 28rpx;height: 28rpx;padding-right: 10rpx;padding-top: 10rpx;}
+.fruit-item .fruit-info .like-image image {width: 100%;height: 100%;display: block}
+.fruit-item .fruit-info .like-num {font-size: 25rpx;color:rgb(243, 120, 95);padding-top: 10rpx;}
+
 

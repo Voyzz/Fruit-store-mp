@@ -8,20 +8,47 @@
   <swiper></swiper>
 </view>
 
-
-<view>
-  <navigator url='../../pages/bgInfo/bgInfo'>后台</navigator>
+<!-- 分类展示 -->
+<view class='type-container'>
+    <view class='type-item' wx:for="{{typeCat}}" wx:key="id">
+      <view id='{{item.id}}' class="type-name {{activeTypeId === item.id ? 'type-item-on' : ''}}" bindtap='typeSwitch'>
+        {{item.name}}
+      </view>
+    </view>
 </view>
 
 <!-- 商品图 -->
-<view class='fruit-board'>
+<view class='fruit-container'>
+  <!-- 水果信息卡片 -->
   <block wx:for="{{fruitInfo}}" wx:key='fruitID'>
-    <view class='fruit-card'>
-     <image src='{{item.imgUrl}}'></image>
-     <text>{{item.name}}</text>
+    <view class='fruit-item'>
+      <!-- 图片 -->
+      <view class='fruit-image'>
+        <image src='{{item.imgUrl}}'></image>
+      </view>
+      <!-- 其他信息 -->
+      <view class='fruit-info'>
+        <view class='line1'>
+          <!-- 名称 -->
+          <text class='name'>{{item.name}}</text>
+        </view>
+        <view class='line2'>
+          <!-- 价格 -->
+          <view class='price'>
+            <text>￥{{item.price}}</text>
+          </view>
+          <!-- 销量图标 -->
+          <view class='like-image'>
+            <image src='../../images/icon/purchaseFreq.png'></image>
+          </view>
+          <!-- 销量 -->
+          <view class='like-num'>销量: {{item.purchaseFreq}}</view> 
+        </view>
+      </view>
     </view>
   </block>
 </view>
+
 
 
 <!-- <view style='margin-top:200rpx;'>
