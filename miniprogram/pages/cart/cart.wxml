@@ -1,2 +1,57 @@
 <!--miniprogram/pages/cart.wxml-->
-<text>miniprogram/pages/cart.wxml</text>
+<view class="main">
+    <view wx:if="{{hasList}}">
+        <!-- 选项卡 -->
+        <view class="cart-box">
+            <!-- 商品卡片 -->
+            <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+                <!-- 勾选图标 -->
+                <icon wx:if="{{item.selected}}" type="success" color="orange" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
+                <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
+                <!-- 商品图片 -->
+                <navigator url="../details/details?id={{item.fruitID}}">
+                  <image class="cart-thumb" src="{{item.imgUrl}}"></image>
+                </navigator>
+                <!-- 名称 -->
+                <text class="cart-pro-name">{{item.name}}</text>
+                <!-- 价格 -->
+                <text class="cart-pro-price">￥{{item.price}}</text>
+                <!-- 加/数量/减 -->
+                <view class="cart-count-box">
+                    <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
+                    <text class="cart-count-num">{{item.num}}</text>
+                    <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+                </view>
+                <!-- 删除 -->
+                <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
+            </view>
+        </view>
+
+        <!-- 底部导航 -->
+        <view class="cart-footer">
+            <!-- 全选图标 -->
+            <icon wx:if="{{selectAllStatus}}" type="success_circle" color="orange" class="total-select" bindtap="selectAll"/>
+            <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll"/>
+            <view class='footer-select'>
+              <text>全选</text>
+            </view>
+            
+            <!-- 总价 -->
+            <view class="cart-toatl-price">￥{{totalPrice}}</view>
+            <!-- 支付按钮 -->
+            <view class="order-icon">
+                <navigator url="../pay/pay?totalPrice={{totalPrice}}">
+                  <view>确认支付</view>
+                </navigator>
+            </view>
+        </view>
+
+    </view>
+
+    <!-- 空购物车 -->
+    <view wx:else>
+        <view></view>
+        <view class="cart-no-data">购物车是空的哦~</view>
+    </view>
+
+</view>

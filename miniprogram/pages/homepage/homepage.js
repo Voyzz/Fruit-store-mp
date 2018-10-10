@@ -2,7 +2,6 @@
 const app = getApp()
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -20,7 +19,7 @@ Page({
   },
 
 
-  // 分类展示切换
+  // ------------分类展示切换---------
   typeSwitch: function(e) {
     console.log(e.currentTarget.id)
     getCurrentPages()["0"].setData({
@@ -64,6 +63,15 @@ Page({
 
     }
   },
+
+
+  // ---------点击跳转至详情页面-------------
+  tapToDetail: function(e) {
+    wx.navigateTo({
+      url: '../detail/detail?_id=' + e.currentTarget.dataset.fid,
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

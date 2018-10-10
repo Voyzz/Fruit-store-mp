@@ -1,0 +1,35 @@
+/* miniprogram/pages/detail/detail.wxss */
+page {background-color: rgb(245, 249, 253)}
+
+/* 图片 */
+.detail-image {width: 100%;height: 600rpx;}
+.detail-image image {width: 100%;height: 100%;}
+
+/* 详细信息 */
+.detail-info {background-color: white}
+.detail-info .line1 {padding:30rpx 30rpx 10rpx 30rpx}
+.detail-info .line1 view {font-size: 40rpx}
+.detail-info .line2 {padding:10rpx 25rpx 30rpx 25rpx;display: flex;justify-content: space-between;font-size: 25rpx;color: grey}
+.detail-info .line2 .price {font-size: 32rpx;color: #EE6A50}
+.detail-info .line2 .purchaseFreq {padding-top: 9rpx;}
+.detail-info .line2 .iLike {padding-top: 9rpx;}
+
+/* 其他信息 */
+.other-info {background-color: white;padding: 20rpx;margin-top: 35rpx;height: 900rpx;}
+
+/* 底部导航 */
+.detail-nav {position: fixed;display: flex;bottom: 0;box-shadow:0 0 8rpx 0;height: 100rpx;width: 750rpx;line-height: 100rpx;text-align: center}
+.detail-nav .cart {background-color: white;width: 120rpx;}
+.detail-nav .addToCart {background-color: orange;flex: 1;color: white}
+.detail-nav .buy {background-color: rgb(245, 71, 37);width: 320rpx;color: white}
+
+/* 弹窗 */
+.popUpWindow {z-index: 5;position: fixed;top: 0;left: 0;width: 100%;height: 100%}
+.popUpWindow .popUpMask {z-index: 6;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color:rgba(128, 128, 128, 0.596)}
+.popUpWindow .popUpMask .popCard {z-index: 7;height: 350rpx;padding: 20rpx 0 30rpx 30rpx;position: fixed;bottom: 0;left: 0;width: 100%;background-color: white;display: flex;flex-direction: column}
+.popUpWindow .popUpMask .popCard .popName {font-size: 45rpx;}
+.popUpWindow .popUpMask .popCard .popPrice {font-size: 30rpx;color: rgb(245, 71, 37);width: 700rpx;padding-bottom: 10rpx;border-bottom: rgb(226, 223, 223) 1rpx solid;}
+.popUpWindow .popUpMask .popCard .popCount {display: flex;justify-content: space-between;width: 700rpx;font-size: 35rpx;padding: 25rpx 30rpx 0 0;color: grey}
+.popUpWindow .popUpMask .popCard .popCount .plusMinus {display: flex;justify-content: space-between}
+.popUpWindow .popUpMask .popCard .popCount .plusMinus view {width: 40rpx;text-align: center;border: rgb(231, 229, 229) 1rpx solid;}
+.popUpWindow .popUpMask .popCard .popButton {position: fixed;bottom: 0;left: 0;height: 90rpx;line-height: 90rpx;width: 100%;background-color: rgb(247, 112, 71);color: white;text-align: center}

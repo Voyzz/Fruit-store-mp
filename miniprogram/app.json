@@ -5,19 +5,21 @@
     "pages/bgManage/bgManage",
     "pages/bgInfo/bgInfo",
     "pages/cart/cart",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/detail/detail",
+    "pages/pay/pay"
   ],
   "window": {
     "backgroundColor": "#F0F0F0",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FFFACD",
+    "navigationBarBackgroundColor": "#FFF5EE",
     "navigationBarTitleText": "Fruit-store",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "selectedColor": "#EEAD0E",
     "color": "#878787",
-    "backgroundColor": "#FFFACD",
+    "backgroundColor": "#FFF5EE",
     "list": [
       {
         "pagePath": "pages/homepage/homepage",

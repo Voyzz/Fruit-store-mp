@@ -1,0 +1,63 @@
+<!--miniprogram/pages/detail/detail.wxml-->
+<view class='detail-container'>
+  <!-- 图片 -->
+  <view class='detail-image'>
+    <image src="{{fruitDetail.imgUrl}}"></image>
+  </view>
+
+  <!-- 详细信息 -->
+  <view class='detail-info'>
+    <!-- 第一行 -->
+    <view class='line1'>
+      <!-- 名字 -->
+      <view>{{fruitDetail.name}}</view>
+    </view>
+    <!-- 第二行 -->
+    <view class='line2'>
+      <view class='price'>价格:￥{{fruitDetail.price}}</view>
+      <view class='purchaseFreq'>已售 {{fruitDetail.purchaseFreq}} 份</view>
+      <view class='iLike'>共收到 {{fruitDetail.iLike}} 好评</view>
+    </view>
+  </view>
+
+  <!-- 其他信息 -->
+  <view class='other-info'>
+    <view>------↓↓以下为其他信息↓↓-------</view>
+  </view>
+
+  <!-- 底部导航 -->
+  <view class='detail-nav'>
+    <view class='cart'>
+      <image src="../../images/tabBar/cart-sel.png" style='width:40%;height:40%'></image>
+    </view>
+    <view class='addToCart' bindtap='addToCart'>加入购物车</view>
+    <view class='buy'>立即购买</view>
+  </view>
+
+  <!-- 购物车/购买弹窗 -->
+  <view class='popUpWindow' hidden="{{popUpHidden}}">
+    <view class='popUpMask'>
+      <view class='popCard'>
+        <!-- 取消按钮 -->
+        <view style='width:700rpx;' bindtap='popCancel'>
+          <icon type="cancel" size="20" color='grey' style='float:right'/>
+        </view>
+        <!-- 名字 -->
+        <view class='popName'>{{fruitDetail.name}}</view>
+        <!-- 价格 -->
+        <view class='popPrice'>￥{{fruitDetail.price}}</view>
+        <!-- 购买数量 -->
+        <view class='popCount'>
+          <view class='word'>购买数量</view>
+          <view class='plusMinus'>
+            <view class='minus' bindtap='minusCount'>-</view>
+            <view class='count'>{{popCartCount}}</view>
+            <view class='plus' bindtap='plusCount'>+</view>
+          </view>
+        </view>
+        <!-- 按钮 -->
+        <view class='popButton' bindtap='toCart'>加入购物车</view>
+      </view>
+    </view>
+  </view>
+</view>

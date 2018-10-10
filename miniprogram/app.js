@@ -11,7 +11,9 @@ App({
     }
 
     this.globalData = {
-      cloudRoot : "clo140d-voyz-cloud-86f82a/"
+      cloudRoot : "clo140d-voyz-cloud-86f82a/",
+      tmpNum: 0,
+      cartInfo: {}, //购物车信息
     }
   },
 

@@ -21,7 +21,7 @@
 <view class='fruit-container'>
   <!-- 水果信息卡片 -->
   <block wx:for="{{fruitInfo}}" wx:key='fruitID'>
-    <view class='fruit-item'>
+    <view class='fruit-item' bindtap='tapToDetail' data-fID="{{item._id}}">
       <!-- 图片 -->
       <view class='fruit-image'>
         <image src='{{item.imgUrl}}'></image>
