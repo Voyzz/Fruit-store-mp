@@ -22,16 +22,23 @@
 
   <!-- 其他信息 -->
   <view class='other-info'>
-    <view>------↓↓以下为其他信息↓↓-------</view>
+    <view class="goods-tab-box">
+        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
+        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">售后保障</view>
+        <view class="goods-content">
+            <view wx:if="{{curIndex === 0}}">goods.detail</view>
+            <view wx:if="{{curIndex === 1}}">goods.service</view>
+        </view>
+    </view>
   </view>
 
   <!-- 底部导航 -->
   <view class='detail-nav'>
-    <view class='cart'>
-      <image src="../../images/tabBar/cart-sel.png" style='width:40%;height:40%'></image>
+    <view class='cart' bindtap='goToCart'>
+      <image src="../../images/icon/cart2.png" style='width:60%;height:65%'></image>
     </view>
     <view class='addToCart' bindtap='addToCart'>加入购物车</view>
-    <view class='buy'>立即购买</view>
+    <view class='buy' bindtap='toBuy'>立即购买</view>
   </view>
 
   <!-- 购物车/购买弹窗 -->

@@ -68,7 +68,7 @@ Page({
   // ---------点击跳转至详情页面-------------
   tapToDetail: function(e) {
     wx.navigateTo({
-      url: '../detail2/detail2?_id=' + e.currentTarget.dataset.fid,
+      url: '../detail/detail?_id=' + e.currentTarget.dataset.fid,
     })
   },
 
@@ -77,14 +77,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getInfoFromSet('fruit-board', {}, 
-      e => {
-        // console.log(e.data)
-        getCurrentPages()["0"].setData({
-          fruitInfo: e.data
-        })
-      }
-    )
+    
   },
 
   /**
@@ -98,7 +91,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.getInfoFromSet('fruit-board', {},
+      e => {
+        // console.log(e.data)
+        getCurrentPages()["0"].setData({
+          fruitInfo: e.data
+        })
+      }
+    )
   },
 
   /**

@@ -7,9 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: {},
-    num: 1,
-    totalNum: 0,
+    goods: {},  //水果信息对象
+    _id: null,  //水果的唯一id
+    num: 1,   
+    totalNum: 0,  //添加至购物车的数量
     hasCarts: false,
     curIndex: 0,
     show: false,
@@ -21,10 +22,11 @@ Page({
    */
   onLoad: function (e) {
     var self = this
-    // console.log(e._id)
+    self.setData({
+      _id: e._id
+    })
     app.getInfoWhere('fruit-board', { _id: e._id},
       e => {
-        // console.log(e)
         this.setData({
           goods: e.data["0"]
         })
@@ -37,7 +39,7 @@ Page({
    */
   onReady: function () {
     var self = this
-    console.log(self.data)
+    // console.log(self.data)
   },
 
   /**
@@ -45,6 +47,25 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  // 传递购物车数据至全局
+  dataTrans() {
+    const self = this
+    
+  },
+
+  minusCount() {
+    let num = this.data.num;
+    if(num === 1){
+      return
+    }
+    else{
+      num--;
+      this.setData({
+        num: num
+      })
+    }
   },
 
   addCount() {
@@ -63,24 +84,24 @@ Page({
     self.setData({
       show: true
     })
-    new Promise(
-      setTimeout(function (resolve,reject) {
+    setTimeout(function (resolve, reject) {
+      self.setData({
+        show: false,
+        scaleCart: true
+      })
+      setTimeout(function () {
         self.setData({
-          show: false,
-          scaleCart: true
+          scaleCart: false,
+          hasCarts: true,
+          totalNum: num + total
         })
-        setTimeout(function () {
-          self.setData({
-            scaleCart: false,
-            hasCarts: true,
-            totalNum: num + total
-          })
-        }, 200)
-        resolve(totalNum)
-      }, 300)
-    ).then(resolve => console.log(resolve))
-    
+      }, 200)
+    }, 300)
 
+    var cartItem = {}
+    cartItem["_id"] = self.data._id
+    cartItem["num"] = self.data.totalNum
+    app.globalData.cart.push(cartItem)
   },
 
   bindTap(e) {

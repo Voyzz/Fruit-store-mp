@@ -2,7 +2,7 @@
     <view class="goods-box">
         <image src="{{goods.imgUrl}}" class="goods-thumb"></image>
         
-        <navigator open-type="switchTab" url="../cart/cart">
+        <navigator open-type="switchTab" url="../cart/cart" bindtap='dataTrans'>
             <view class="carts-icon {{scaleCart?'on':''}}">
                 <image src="/images/icon/cart2.png"></image>
                 <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
@@ -10,6 +10,7 @@
         </navigator>
         
         <view class="goods-operation">
+            <text class="goods-operation-add" bindtap="minusCount">-</text>
             <text class="goods-operation-num">数量  {{num}}</text>
             <text class="goods-operation-add" bindtap="addCount">+</text>
             <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>

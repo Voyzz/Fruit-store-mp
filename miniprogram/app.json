@@ -8,7 +8,9 @@
     "pages/me/me",
     "pages/detail/detail",
     "pages/pay/pay",
-    "pages/detail2/detail2"
+    "pages/detail2/detail2",
+    "pages/address/address",
+    "pages/orders/orders"
   ],
   "window": {
     "backgroundColor": "#F0F0F0",
@@ -35,7 +37,7 @@
         "selectedIconPath": "images/tabBar/cart.png"
       },
       {
-        "pagePath": "pages/bgInfo/bgInfo",
+        "pagePath": "pages/me/me",
         "text": "我的",
         "iconPath": "images/tabBar/me-sel.png",
         "selectedIconPath": "images/tabBar/me.png"

@@ -19,7 +19,7 @@ page {background-color: rgb(245, 249, 253)}
 
 /* 底部导航 */
 .detail-nav {position: fixed;display: flex;bottom: 0;box-shadow:0 0 8rpx 0;height: 100rpx;width: 750rpx;line-height: 100rpx;text-align: center}
-.detail-nav .cart {background-color: white;width: 120rpx;}
+.detail-nav .cart {background-color: white;width: 120rpx;padding-top: 9rpx;}
 .detail-nav .addToCart {background-color: orange;flex: 1;color: white}
 .detail-nav .buy {background-color: rgb(245, 71, 37);width: 320rpx;color: white}
 
@@ -33,3 +33,10 @@ page {background-color: rgb(245, 249, 253)}
 .popUpWindow .popUpMask .popCard .popCount .plusMinus {display: flex;justify-content: space-between}
 .popUpWindow .popUpMask .popCard .popCount .plusMinus view {width: 40rpx;text-align: center;border: rgb(231, 229, 229) 1rpx solid;}
 .popUpWindow .popUpMask .popCard .popButton {position: fixed;bottom: 0;left: 0;height: 90rpx;line-height: 90rpx;width: 100%;background-color: rgb(247, 112, 71);color: white;text-align: center}
+
+/* 详细信息 */
+.goods-tab-nav {display: inline-block;width: 50%;height: 90rpx;line-height: 90rpx;border-bottom: 1rpx solid #ededed;box-sizing: border-box;text-align: center;color: #c7c7cb;
+}
+.goods-tab-nav.on {color: rgba(255, 132, 132, 0.979);border-bottom: 5rpx solid rgba(255, 132, 132, 0.979);
+}
+.goods-content {padding: 40rpx;}

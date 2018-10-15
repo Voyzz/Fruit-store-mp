@@ -3,34 +3,35 @@ const app = getApp()
 
 Page({
   data: {
-    carts: [],               // 购物车列表
+    carts: [
+      // { id: 2, title: '素米 500g', image: '/image/icon/cart1.png', num: 2, price: 20, selected: true }
+    ],               // 购物车列表
     hasList: false,          // 列表是否有数据
     totalPrice: 0,           // 总价，初始为0
     selectAllStatus: true,    // 全选状态，默认全选
-    obj: {
-      name: "hello"
-    }
+    obj: {name: "hello"}
   },
 
-  onLoad() {
+  onLoad(e) {
     var self = this
-    console.log(app.globalData.myCarts)
-    self.setData({
-      carts: app.globalData.myCarts
-    })
   },
 
   onShow() {
-    var self = this    
-    self.setData({
-      hasList: true,
-    });
+    var self = this
+    self.data.carts = app.globalData.carts
+    if (app.globalData.carts.length != 0) {
+      self.setData({
+        hasList: true,
+      });
+    } 
     self.getTotalPrice();
   },
+
   /**
    * 当前商品选中事件
    */
   selectList(e) {
+    var self = this
     const index = e.currentTarget.dataset.index;
     let carts = this.data.carts;
     const selected = carts[index].selected;
@@ -38,6 +39,7 @@ Page({
     this.setData({
       carts: carts
     });
+    app.globalData.carts = carts
     this.getTotalPrice();
   },
 
@@ -51,6 +53,7 @@ Page({
     this.setData({
       carts: carts
     });
+    app.globalData.carts = carts
     if (!carts.length) {
       this.setData({
         hasList: false
@@ -75,6 +78,7 @@ Page({
       selectAllStatus: selectAllStatus,
       carts: carts
     });
+    app.globalData.carts = carts
     this.getTotalPrice();
   },
 
@@ -90,6 +94,7 @@ Page({
     this.setData({
       carts: carts
     });
+    app.globalData.carts = carts
     this.getTotalPrice();
   },
 
@@ -109,6 +114,7 @@ Page({
     this.setData({
       carts: carts
     });
+    app.globalData.carts = carts
     this.getTotalPrice();
   },
 
@@ -127,6 +133,7 @@ Page({
       carts: carts,
       totalPrice: total.toFixed(2)
     });
+    app.globalData.carts = carts    
   }
 
 })

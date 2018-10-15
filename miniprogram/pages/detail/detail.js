@@ -9,6 +9,15 @@ Page({
     fruitDetail: {}, //水果信息
     popUpHidden: true, //是否隐藏弹窗
     popCartCount: 1, //购物车数量
+    curIndex: 0,
+  },
+
+  // 跳转至购物车
+  goToCart: function() {
+    // console.log('hhhh')
+    wx.switchTab({
+      url: '/pages/cart/cart',
+    })
   },
 
   // 弹出购物车选项
@@ -50,6 +59,7 @@ Page({
     // console.log(that.data)
     // { fruitID: 2, name: '香蕉', imgUrl: '/images/icon/like.png', num: 1, price: 5, selected: true }
     var newCartItem = {
+      _id: that.data.fruitDetail._id,
       fruitID: that.data.fruitDetail.fruitID,
       name: that.data.fruitDetail.name,
       imgUrl: that.data.fruitDetail.imgUrl,
@@ -57,13 +67,42 @@ Page({
       price: that.data.fruitDetail.price,
       selected: true
     }
-    app.globalData.myCarts.push(newCartItem)
-    console.log(app.globalData.myCarts)        
+    // console.log(newCartItem)
+    app.globalData.carts.push(newCartItem)
+    wx.showToast({
+      title: '已添加至购物车',
+    })
+    that.setData({
+      popUpHidden: true
+    })
+    // console.log(app.globalData.carts)        
   },
 
-  // 跳转至购物车
-  goToCart: function() {
-    
+  // 立即购买
+  toBuy: function () {
+    var that = this
+    var newCartItem = {
+      fruitID: that.data.fruitDetail.fruitID,
+      name: that.data.fruitDetail.name,
+      imgUrl: that.data.fruitDetail.imgUrl,
+      num: 1,
+      price: that.data.fruitDetail.price,
+      selected: true
+    }
+    // console.log(newCartItem)
+    app.globalData.carts.push(newCartItem)
+    // console.log(app.globalData.carts) 
+    wx.switchTab({
+      url: '/pages/cart/cart',
+    })
+  },
+
+  // 详细信息切换
+  bindTap(e) {
+    const index = parseInt(e.currentTarget.dataset.index);
+    this.setData({
+      curIndex: index
+    })
   },
 
 
@@ -81,7 +120,6 @@ Page({
         })
       }
     )
-    
   },
 
   /**

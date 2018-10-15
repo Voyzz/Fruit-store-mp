@@ -1,6 +1,7 @@
 <!--miniprogram/pages/cart.wxml-->
 <view class="main">
     <view wx:if="{{hasList}}">
+
         <!-- 选项卡 -->
         <view class="cart-box">
             <!-- 商品卡片 -->
@@ -40,7 +41,7 @@
             <view class="cart-toatl-price">￥{{totalPrice}}</view>
             <!-- 支付按钮 -->
             <view class="order-icon">
-                <navigator url="../pay/pay?totalPrice={{totalPrice}}">
+                <navigator url="../orders/orders?totalPrice={{totalPrice}}">
                   <view>确认支付</view>
                 </navigator>
             </view>
@@ -50,8 +51,11 @@
 
     <!-- 空购物车 -->
     <view wx:else>
-        <view></view>
         <view class="cart-no-data">购物车是空的哦~</view>
+        <navigator url='/pages/homepage/homepage' open-type="switchTab">
+          <view class='cartBtn'>去买水果</view>
+        </navigator>
+        
     </view>
 
 </view>

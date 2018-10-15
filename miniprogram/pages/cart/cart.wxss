@@ -123,3 +123,23 @@ page{
   text-align: center;
   margin-right: 30rpx;
 }
+
+/* 空购物车 */
+.cart-no-data {
+  text-align: center;
+  color: rgb(143, 142, 142);
+  font-size: 38rpx;
+  margin: 50rpx;
+}
+
+.cartBtn {
+  width: 120rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 25rpx;
+  background-color: rgb(250, 193, 87);
+  border-radius: 10rpx;
+  margin: 0 315rpx;
+  text-align: center;
+  color: white;
+}
