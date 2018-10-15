@@ -7,7 +7,8 @@
     "pages/cart/cart",
     "pages/me/me",
     "pages/detail/detail",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/detail2/detail2"
   ],
   "window": {
     "backgroundColor": "#F0F0F0",

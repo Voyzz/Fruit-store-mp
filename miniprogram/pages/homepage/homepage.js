@@ -21,7 +21,7 @@ Page({
 
   // ------------分类展示切换---------
   typeSwitch: function(e) {
-    console.log(e.currentTarget.id)
+    // console.log(e.currentTarget.id)
     getCurrentPages()["0"].setData({
       activeTypeId: parseInt(e.currentTarget.id)
     })
@@ -68,7 +68,7 @@ Page({
   // ---------点击跳转至详情页面-------------
   tapToDetail: function(e) {
     wx.navigateTo({
-      url: '../detail/detail?_id=' + e.currentTarget.dataset.fid,
+      url: '../detail2/detail2?_id=' + e.currentTarget.dataset.fid,
     })
   },
 

@@ -47,8 +47,23 @@ Page({
   // 添加购物车
   toCart: function () {
     var that = this
-    console.log(that.data.popCartCount)
-    app.globalData.tmpNum = that.data.popCartCount
+    // console.log(that.data)
+    // { fruitID: 2, name: '香蕉', imgUrl: '/images/icon/like.png', num: 1, price: 5, selected: true }
+    var newCartItem = {
+      fruitID: that.data.fruitDetail.fruitID,
+      name: that.data.fruitDetail.name,
+      imgUrl: that.data.fruitDetail.imgUrl,
+      num: that.data.popCartCount,
+      price: that.data.fruitDetail.price,
+      selected: true
+    }
+    app.globalData.myCarts.push(newCartItem)
+    console.log(app.globalData.myCarts)        
+  },
+
+  // 跳转至购物车
+  goToCart: function() {
+    
   },
 
 
@@ -60,7 +75,7 @@ Page({
     var that = this
     app.getInfoWhere('fruit-board', { _id: e._id },
       e => {
-        console.log(e.data["0"])
+        // console.log(e.data["0"])
         that.setData({
           fruitDetail: e.data["0"]
         })

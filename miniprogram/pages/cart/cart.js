@@ -1,4 +1,6 @@
 // page/component/new-pages/cart/cart.js
+const app = getApp()
+
 Page({
   data: {
     carts: [],               // 购物车列表
@@ -9,15 +11,21 @@ Page({
       name: "hello"
     }
   },
+
+  onLoad() {
+    var self = this
+    console.log(app.globalData.myCarts)
+    self.setData({
+      carts: app.globalData.myCarts
+    })
+  },
+
   onShow() {
-    this.setData({
+    var self = this    
+    self.setData({
       hasList: true,
-      carts: [
-        { fruitID: 1, name: '新鲜芹菜 半斤', imgUrl: '/images/icon/like.png', num: 4, price: 0.01, selected: true },
-        { fruitID: 2, name: '素米 500g', imgUrl: '/images/icon/like.png', num: 1, price: 0.03, selected: true }
-      ]
     });
-    this.getTotalPrice();
+    self.getTotalPrice();
   },
   /**
    * 当前商品选中事件
