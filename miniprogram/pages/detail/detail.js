@@ -56,19 +56,10 @@ Page({
   // 添加购物车
   toCart: function () {
     var that = this
-    // console.log(that.data)
-    // { fruitID: 2, name: '香蕉', imgUrl: '/images/icon/like.png', num: 1, price: 5, selected: true }
-    var newCartItem = {
-      _id: that.data.fruitDetail._id,
-      fruitID: that.data.fruitDetail.fruitID,
-      name: that.data.fruitDetail.name,
-      imgUrl: that.data.fruitDetail.imgUrl,
-      num: that.data.popCartCount,
-      price: that.data.fruitDetail.price,
-      selected: true
-    }
+    var newCartItem = that.data.fruitDetail
+    newCartItem.num = that.data.popCartCount
     // console.log(newCartItem)
-    app.globalData.carts.push(newCartItem)
+    app.isNotRepeteToCart(newCartItem)
     wx.showToast({
       title: '已添加至购物车',
     })
@@ -81,16 +72,11 @@ Page({
   // 立即购买
   toBuy: function () {
     var that = this
-    var newCartItem = {
-      fruitID: that.data.fruitDetail.fruitID,
-      name: that.data.fruitDetail.name,
-      imgUrl: that.data.fruitDetail.imgUrl,
-      num: 1,
-      price: that.data.fruitDetail.price,
-      selected: true
-    }
+    var newCartItem = that.data.fruitDetail
+    newCartItem.num = that.data.popCartCount
     // console.log(newCartItem)
-    app.globalData.carts.push(newCartItem)
+    // app.globalData.carts.push(newCartItem)
+    app.isNotRepeteToCart(newCartItem)
     // console.log(app.globalData.carts) 
     wx.switchTab({
       url: '/pages/cart/cart',

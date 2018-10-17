@@ -21,6 +21,7 @@
                 <view class="cart-count-box">
                     <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
                     <text class="cart-count-num">{{item.num}}</text>
+                    <text style='font-size:20rpx;'>{{item.unit}}</text>
                     <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
                 </view>
                 <!-- 删除 -->

@@ -17,6 +17,34 @@ App({
     }
   },
 
+  // --------------常用----------------
+  // 判断购物车中是否有重复后添加购物车
+  isNotRepeteToCart: function (newCartItem) {
+    var self = this
+    var isRepete = function() {
+      var p = new Promise((resolve, reject) => {
+        var flag = false
+        self.globalData.carts.forEach((v) => {
+          if (v._id === newCartItem._id) {
+            flag = true
+          }
+        })
+        resolve(flag)
+      })
+      return p
+    }
+    isRepete().then((flag) => {
+      if(flag) {
+        wx.showToast({
+          title: '已经添加过了~',
+        })
+      }
+      else{
+        this.globalData.carts.push(newCartItem)
+      }
+    })
+  },
+
   // --------------数据库操作----------------
 
   // 向集合内新增记录(集合名，要添加的数据对象，回调函数)

@@ -3,12 +3,10 @@ const app = getApp()
 
 Page({
   data: {
-    carts: [
-      // { id: 2, title: '素米 500g', image: '/image/icon/cart1.png', num: 2, price: 20, selected: true }
-    ],               // 购物车列表
+    carts: [],               // 购物车列表
     hasList: false,          // 列表是否有数据
     totalPrice: 0,           // 总价，初始为0
-    selectAllStatus: true,    // 全选状态，默认全选
+    selectAllStatus: false,    // 全选状态，默认全选
     obj: {name: "hello"}
   },
 

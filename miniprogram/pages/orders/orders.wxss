@@ -85,5 +85,5 @@
     width: 240rpx;
     text-align: center;
     color: #fff;
-    background: rgb(241, 205, 136);
+    background: rgb(248, 188, 76);
 }

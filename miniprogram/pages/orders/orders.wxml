@@ -1,4 +1,5 @@
 <view class="main">
+    <view style='color: #adadad;font-size: 34rpx;padding:20rpx 35rpx;border-bottom:0.5rpx #ededed solid;'>请选择收货地址：</view>
     <navigator url="../address/address">
         <view wx:if="{{hasAddress}}" class="orders-address">
             <text class="orders-address-name">收货人: {{address.name}}</text>

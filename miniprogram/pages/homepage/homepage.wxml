@@ -36,13 +36,14 @@
           <!-- 价格 -->
           <view class='price'>
             <text>￥{{item.price}}</text>
+            <text style='font-size:20rpx;'>/{{item.unit}}</text>
           </view>
           <!-- 销量图标 -->
-          <view class='like-image'>
-            <image src='../../images/icon/purchaseFreq.png'></image>
+          <view class='like-image' catchtap="addCartByHome" data-_id="{{item._id}}">
+            <image src='../../images/icon/cart3.png'></image>
           </view>
           <!-- 销量 -->
-          <view class='like-num'>销量: {{item.purchaseFreq}}</view> 
+          <!-- <view class='like-num'>添加</view>  -->
         </view>
       </view>
     </view>

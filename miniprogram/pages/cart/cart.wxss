@@ -97,7 +97,7 @@ page{
   height: 100rpx;
   line-height: 100rpx;
   box-sizing: border-box;
-  background: rgb(241, 239, 236);
+  background: #FFF5EE;
   color: rgb(143, 143, 143);
 }
 .cart-footer .footer-select {

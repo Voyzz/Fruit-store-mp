@@ -18,6 +18,10 @@ Page({
     activeTypeId: 0,
   },
 
+  addCartByHome: function(e) {
+    console.log(e)
+  },
+
 
   // ------------分类展示切换---------
   typeSwitch: function(e) {

@@ -44,16 +44,10 @@ Page({
     })
   },
 
+  // 去支付
   toPay() {
-    wx.showModal({
-      title: '提示',
-      content: '本系统只做演示，支付系统已屏蔽',
-      text: 'center',
-      complete() {
-        wx.switchTab({
-          url: '/pages/pay/pay'
-        })
-      }
+    wx.showLoading({
+      title: '转至微信支付',
     })
   }
 })
