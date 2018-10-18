@@ -40,14 +40,14 @@ Page({
       total += orders[i].num * orders[i].price;
     }
     this.setData({
-      total: total
+      total: total.toFixed(1)
     })
   },
 
   // 去支付
   toPay() {
-    wx.showLoading({
-      title: '转至微信支付',
+    wx.showToast({
+      title: "需支付["+this.data.total+"]元",
     })
   }
 })

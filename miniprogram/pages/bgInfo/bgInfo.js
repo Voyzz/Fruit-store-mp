@@ -7,25 +7,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    fruitInfo: {},
+    tmpUrl: ""
   },
 
   // 获取水果信息表单
   addFruitInfo: function(e){
-    app.addRowToSet('fruit-board', e.detail.value,e=>{
-      console.log(e)
-      wx.showToast({
-        title: '添加成功',
+    const self = this
+    // console.log(e)
+    // 获取本地图片
+    new Promise((resolve,reject)=>{
+      self.setData({
+        fruitInfo: e.detail.value
+      })
+      self.data.fruitInfo.imgUrl = self.data.tmpUrl
+      resolve(self.data.fruitInfo)
+    }).then(fruitInfo=>{
+      // 上传所有信息
+      app.addRowToSet('fruit-board', fruitInfo, e => {
+        console.log(e)
+        wx.showToast({
+          title: '添加成功',
+        })
       })
     })
   },
 
+  deleteFruit: function() {
+    app.deleteInfoFromSet('fruit-board',"葡萄")
+  },
 
+  // 上传图片返回tmpUrl
+  selectImg:function(){
+    const self = this
+    app.selectImgUpToC(Math.random().toString(),tmpUrl=>{
+      console.log(tmpUrl)
+      self.setData({
+        tmpUrl: tmpUrl
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app)
+    // console.log(app)
   },
 
   /**

@@ -10,7 +10,7 @@ page {background-color: rgb(245, 249, 253)}
 .type-container {background-color: white;display: flex;justify-content: space-between;padding: 0 20rpx;}
 .type-container .type-item{width: 150rpx;height: 80rpx;}
 .type-container .type-item view{font-size: 25rpx;text-align: center;line-height: 80rpx;}
-.type-container .type-item .type-item-on {border-bottom: 5rpx rgba(226, 43, 211, 0.973) solid}
+.type-container .type-item .type-item-on {border-bottom: 5rpx rgba(250, 61, 165, 0.973) solid}
 
 
 /* 商品图 */
@@ -33,4 +33,8 @@ page {background-color: rgb(245, 249, 253)}
 .fruit-item .fruit-info .like-image image {width: 100%;height: 100%;display: block}
 /* .fruit-item .fruit-info .like-num {font-size: 20rpx;color:rgb(197, 197, 197);padding-top: 10rpx;} */
 
+/* 主页底部 */
+.homeBottom {padding-bottom: 25rpx;display: flex;justify-content: center;align-items: center}
+.homeBottom .bottomLine {height: 1rpx;width: 50rpx;background: grey;margin: 0 10rpx}
+.homeBottom .bottomWord {font-size: 25rpx;color: grey}
 

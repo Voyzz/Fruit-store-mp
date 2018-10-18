@@ -67,5 +67,11 @@ Page({
         })
       }
     })
+  },
+
+  goToBgInfo: function() {
+    wx.navigateTo({
+      url: '/pages/bgInfo/bgInfo',
+    })
   }
 })

@@ -18,8 +18,22 @@ Page({
     activeTypeId: 0,
   },
 
+  // 加入购物车
   addCartByHome: function(e) {
-    console.log(e)
+    // console.log(e.currentTarget.dataset._id)
+    var self = this
+    let newItem = {}
+    app.getInfoWhere('fruit-board', { _id: e.currentTarget.dataset._id },
+      e => {
+        // console.log(e.data["0"])
+        var newCartItem = e.data["0"]
+        newCartItem.num = 1
+        app.isNotRepeteToCart(newCartItem)
+        wx.showToast({
+          title: '已添加至购物车',
+        })
+      }
+    )
   },
 
 
@@ -63,8 +77,14 @@ Page({
         break;
       // 店主推荐
       case '3':
-        console.log("店主推荐")
-
+        app.getInfoWhere('fruit-board', { recommend: '1' },
+          e => {
+            getCurrentPages()["0"].setData({
+              fruitInfo: e.data
+            })
+          }
+        )
+        break;
     }
   },
 

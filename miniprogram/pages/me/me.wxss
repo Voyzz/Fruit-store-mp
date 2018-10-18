@@ -21,8 +21,11 @@
     float: right;
 }
 
+.bgInfo {margin: 20rpx 10rpx 20rpx 10rpx;border: 0.5rpx #EE6A50 dotted;border-radius: 10rpx;text-align: center;background: #EE6A50;color: white;height: 65rpx;line-height: 65rpx;font-size: 28rpx;}
+
 .address-box{
     border-bottom: 20rpx solid #ededed;
+    border-top: 20rpx solid #ededed;
     color: #999;
     line-height: 90rpx;
     font-size: 28rpx;

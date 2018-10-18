@@ -129,7 +129,7 @@ Page({
     }
     this.setData({                                // 最后赋值到data中渲染到页面
       carts: carts,
-      totalPrice: total.toFixed(2)
+      totalPrice: total.toFixed(1)
     });
     app.globalData.carts = carts    
   }

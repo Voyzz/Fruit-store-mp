@@ -50,8 +50,12 @@
   </block>
 </view>
 
+<!-- 底部 -->
+<view class='homeBottom'>
+  <view class='bottomLine'></view>
+  <view class='bottomWord'>没有更多啦</view>
+  <view class='bottomLine'></view>
+</view>
 
 
-<!-- <view style='margin-top:200rpx;'>
-  <button bindtap='uploadImg'>上传图片</button>
-</view> -->
+

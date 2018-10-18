@@ -7,9 +7,10 @@
         <view class='nickname'>
           <open-data type="userNickName"></open-data>
         </view>
-
         <!-- <text class="nickname">{{nickname}}</text> -->
     </view>
+    <!-- 后台管理 -->
+    <view class='bgInfo' bindtap='goToBgInfo'>后台管理</view>
     <view class="address-box">
         <view class="address-manage">
             <navigator url="/pages/address/address">地址管理</navigator>

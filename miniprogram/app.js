@@ -14,6 +14,7 @@ App({
       cloudRoot : "clo140d-voyz-cloud-86f82a/",
       carts:[],  //购物车
       tmpNum: 0,
+      tempFilePaths: ""
     }
   },
 
@@ -85,14 +86,46 @@ App({
       .catch(console.error)
   },
 
+  // 删除集合中的数据
+  deleteInfoFromSet: function (setName,fruitName) {
+    const db = wx.cloud.database()
+    db.collection(setName).where({
+      name: fruitName
+    }).doc('todo-identifiant-aleatoire').remove({
+      success: e=>console.log(e),
+      fail: console.error
+    })
+  },
+
+  // 选择本地图片上传至云端
+  selectImgUpToC: function (imgName,tmpUrlCallback) {
+    const self = this
+    // 获取图片临时地址
+    new Promise((resolve,reject)=>{
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+        success(res) {
+          // tempFilePath可以作为img标签的src属性显示图片
+          resolve(res.tempFilePaths["0"])
+        }
+      })
+    }).then(e => self.upToClound("imgSwiper", imgName, e, tmpUrlCallback))
+  },
+
   // 上传图片到云端（云端文件夹，云端文件名，文件临时地址）
-  upToClound: (imgFolder, imgName, myFilePath) => {
+  upToClound: (imgFolder, imgName, myFilePath,fileIDCallback) => {
     wx.cloud.uploadFile({
       cloudPath: imgFolder + "/" + imgName, // 上传至云端的路径
       filePath: myFilePath, // 小程序临时文件路径
       success: res => {
         // 返回文件 ID
-        console.log(res.fileID)
+        wx.showToast({
+          title: '图片已上传',
+        })
+        fileIDCallback(res.fileID)
+
       },
       fail: console.error
     })
