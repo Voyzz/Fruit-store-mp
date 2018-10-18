@@ -1,4 +1,13 @@
 /* miniprogram/pages/bgInfo/bgInfo.wxss */
-.bgInfo {background: rgb(224, 223, 223)}
+.bgInfo {background: #FFF5EE}
 
-.fruit-board {background: white;margin: 30rpx;border: 1px solid white;border-radius: 10rpx;}
+.selectImg {text-align: center;font-size: 28rpx;position: absolute;top: 178rpx;left: 48rpx;color: grey;z-index: 1}
+
+.fruit-board {background: white;margin: 30rpx;margin-bottom: 0;border: 1px solid white;border-radius: 10rpx;font-size: 28rpx}
+.fruit-board form view {text-align: center;color: rgb(128, 111, 80);font-size: 35rpx;border-bottom: 0.5rpx rgb(211, 211, 211) solid;padding: 20rpx 0;}
+.fruit-board form input {padding: 15rpx 0;margin: 0 15rpx;border-bottom: 0.5rpx rgb(211, 211, 211) solid}
+.fruit-board form textarea {padding: 15rpx 0;margin: 0 15rpx;border-bottom: 0.5rpx rgb(211, 211, 211) solid}
+.fruit-board form button {width: 200rpx;height: 70rpx;line-height: 70rpx;margin: 10rpx 20rpx;}
+.btn {display: flex;flex-direction: row;justify-content: center}
+
+.InfoBottom {height: 30rpx;background: #FFF5EE}

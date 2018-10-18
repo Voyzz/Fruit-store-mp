@@ -1,12 +1,16 @@
 // page/component/new-pages/user/user.js
+const app = getApp();
+
 Page({
   data: {
     orders: [],
     hasAddress: false,
-    address: {}
+    address: {},
+    isAdmin: false
   },
   onLoad() {
     var self = this;
+    
     /**
      * 获取用户信息
      */

@@ -18,6 +18,15 @@ Page({
     activeTypeId: 0,
   },
 
+  // 转发
+  onShareAppMessage: function (res) {
+    return {
+      title: '水果园byVoyz',
+      imageUrl: '/images/icon/fruit.png',
+      path: '/pages/homepage/homepage'
+    }
+  },
+
   // 加入购物车
   addCartByHome: function(e) {
     // console.log(e.currentTarget.dataset._id)
