@@ -22,7 +22,7 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '水果园byVoyz',
-      imageUrl: '/images/icon/fruit.png',
+      imageUrl: '../../images/icon/fruit.jpg',
       path: '/pages/homepage/homepage'
     }
   },
