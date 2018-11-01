@@ -10,6 +10,7 @@ Page({
     popUpHidden: true, //是否隐藏弹窗
     popCartCount: 1, //购物车数量
     curIndex: 0,
+    articleID: ""
   },
 
   // 跳转至购物车
@@ -98,6 +99,9 @@ Page({
   onLoad: function (e) {
     // console.log(e._id)
     var that = this
+    that.setData({
+      articleID: e._id
+    })
     app.getInfoWhere('fruit-board', { _id: e._id },
       e => {
         // console.log(e.data["0"])

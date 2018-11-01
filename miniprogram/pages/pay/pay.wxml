@@ -1,2 +1,4 @@
 <!--miniprogram/pages/pay/pay.wxml-->
-<text>miniprogram/pages/pay/pay.wxml</text>
+<view class="WxComment">
+  <WxComment tipOne="Markdown " tipTwo="will be supported, Powered by yicm." submitBtnText="回复" articleID="{{article_id}}" contentLen='1'></WxComment>
+</view>

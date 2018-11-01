@@ -16,26 +16,35 @@
     <view class='line2'>
       <view class='price'>价格:￥{{fruitDetail.price}}</view>
       <view class='purchaseFreq'>已售 {{fruitDetail.purchaseFreq}} 份</view>
-      <view class='iLike'>共收到 {{fruitDetail.iLike}} 好评</view>
     </view>
   </view>
 
   <!-- 其他信息 -->
   <view class='other-info'>
+    <!-- 选项卡 -->
     <view class="goods-tab-box">
         <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
-        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">售后保障</view>
-        <view class="goods-content">
-            <view wx:if="{{curIndex === 0}}">{{fruitDetail.detail}}</view>
-            <view wx:if="{{curIndex === 1}}">{{fruitDetail.service}}</view>
+        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">评论</view>
+    </view>
+    <!-- 评论 -->
+    <view class="goods-content">
+        <view wx:if="{{curIndex === 1}}" class="WxComment">
+              <WxComment tipOne="powered by Voyz_Shen" tipTwo="" submitBtnText="评论" articleID="{{articleID}}" contentLen='1'></WxComment>
         </view>
+        <!-- <view wx:if="{{curIndex === 1}}">{{fruitDetail.service}}</view> -->
+        <view wx:if="{{curIndex === 0}}" class='theDetail'>{{fruitDetail.detail}}</view>
     </view>
   </view>
+
+  
 
   <!-- 底部导航 -->
   <view class='detail-nav'>
     <view class='cart' bindtap='goToCart'>
-      <image src="../../images/icon/cart2.png" style='width:60%;height:65%'></image>
+      <view style='width:70rpx;height:70rpx;margin:0'>
+        <image src="../../images/icon/cart2.png" style='width:70rpx;height:65rpx;margin:5rpx' mode='scaleToFill'></image>
+      </view>
+      <view style='font-size:20rpx;height:30rpx;line-height:30rpx;'>购物车</view>
     </view>
     <view class='addToCart' bindtap='addToCart'>加入购物车</view>
     <view class='buy' bindtap='toBuy'>立即购买</view>

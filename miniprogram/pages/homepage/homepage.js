@@ -16,6 +16,7 @@ Page({
       { id: 3, name: "店主推荐" },
     ],
     activeTypeId: 0,
+    isShow:true
   },
 
   // 转发
@@ -110,7 +111,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this
+    wx.showLoading({
+      title: '生活要领鲜',
+    })
+    that.setData({
+      isShow: false
+    })
+
   },
 
   /**
@@ -128,8 +136,10 @@ Page({
       e => {
         // console.log(e.data)
         getCurrentPages()["0"].setData({
-          fruitInfo: e.data
+          fruitInfo: e.data,
+          isShow: true
         })
+        wx.hideLoading()
       }
     )
   },

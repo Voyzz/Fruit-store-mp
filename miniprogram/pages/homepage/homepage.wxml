@@ -1,3 +1,4 @@
+<view class='myHomePage' wx:if="{{isShow}}">
 <!--miniprogram/pages/homepage/homepage.wxml-->
 
 <!--搜索框-->
@@ -53,9 +54,10 @@
 <!-- 底部 -->
 <view class='homeBottom'>
   <view class='bottomLine'></view>
-  <view class='bottomWord'>没有更多啦</view>
+  <view class='bottomWord'>coding by Voyz_Shen</view>
   <view class='bottomLine'></view>
 </view>
 
+</view>
 
 

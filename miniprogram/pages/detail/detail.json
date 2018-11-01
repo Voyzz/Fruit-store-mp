@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "水果详情"
+  "navigationBarTitleText": "水果详情",
+  "usingComponents": {
+    "WxComment": "/WxComment/component/WxComment/WxComment"
+  }
 }

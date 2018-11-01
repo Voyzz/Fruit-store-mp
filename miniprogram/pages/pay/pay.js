@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    console.log(e.totalPrice)
+    // console.log(e)
   },
 
   /**
