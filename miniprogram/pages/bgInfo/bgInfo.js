@@ -8,7 +8,29 @@ Page({
    */
   data: {
     fruitInfo: {},
-    tmpUrl: ""
+    tmpUrl: "",
+    delFruitId: "",
+    cardNum: 1
+  },
+
+  // 选项卡切换
+  tapTo1: function() {
+    var that = this
+    that.setData({
+      cardNum: 1
+    })
+  },
+  tapTo2: function () {
+    var that = this
+    that.setData({
+      cardNum: 2
+    })
+  }, 
+  tapTo3: function () {
+    var that = this
+    that.setData({
+      cardNum: 3
+    })
   },
 
   // 获取水果信息表单
@@ -33,8 +55,24 @@ Page({
     })
   },
 
+  // 绑定删除水果名称参数
+  getDelFruitId: function(e) {
+    var that = this
+    app.getInfoWhere('fruit-board',{
+      name: e.detail.value
+    },res=>{
+      that.setData({
+        delFruitId: res.data["0"]._id
+      })
+    })
+  },
+
+  // 删除水果
   deleteFruit: function() {
-    app.deleteInfoFromSet('fruit-board',"葡萄")
+    // app.deleteInfoFromSet('fruit-board',"葡萄")
+    var that = this
+    console.log(that.data.delFruitId)
+    app.deleteInfoFromSet('fruit-board', that.data.delFruitId)
   },
 
   // 上传图片返回tmpUrl

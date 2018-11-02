@@ -89,12 +89,15 @@ App({
   },
 
   // 删除集合中的数据
-  deleteInfoFromSet: function (setName,fruitName) {
+  deleteInfoFromSet: function (setName,fruitId) {
     const db = wx.cloud.database()
-    db.collection(setName).where({
-      name: fruitName
-    }).doc('todo-identifiant-aleatoire').remove({
-      success: e=>console.log(e),
+      db.collection(setName).doc(fruitId).remove({
+      success: e=>{
+        wx.showToast({
+          title: '删除成功',
+        })
+        console.log(e)
+      },
       fail: console.error
     })
   },

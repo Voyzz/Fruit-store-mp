@@ -1,13 +1,26 @@
-/* miniprogram/pages/bgInfo/bgInfo.wxss */
-.bgInfo {background: #FFF5EE}
+Page {background: #FFF5EE}
 
-.selectImg {text-align: center;font-size: 28rpx;position: absolute;top: 178rpx;left: 48rpx;color: grey;z-index: 1}
 
+/* 选项卡 */
+.tapCard {display: flex;flex-direction: row;justify-content: start;height: 50rpx;margin: 0 10rpx;}
+.tapCard view {width: 20%;height: 100%;text-align: center;font-size: 26rpx;line-height: 50rpx;border-radius: 10rpx 10rpx 0 0;margin: 0 3rpx;}
+.tapOn {background-color: rgb(255, 140, 58);color: rgb(255, 255, 255)}
+.tapOff {background-color: rgb(255, 205, 169);color: white}
+
+
+/* 选择图片 */
+.selectImg {text-align: center;font-size: 28rpx;position: absolute;top: 228rpx;left: 48rpx;color: grey;z-index: 1}
+
+/* 添加水果 */
 .fruit-board {background: white;margin: 30rpx;margin-bottom: 0;border: 1px solid white;border-radius: 10rpx;font-size: 28rpx}
 .fruit-board form view {text-align: center;color: rgb(128, 111, 80);font-size: 35rpx;border-bottom: 0.5rpx rgb(211, 211, 211) solid;padding: 20rpx 0;}
 .fruit-board form input {padding: 15rpx 0;margin: 0 15rpx;border-bottom: 0.5rpx rgb(211, 211, 211) solid}
 .fruit-board form textarea {padding: 15rpx 0;margin: 0 15rpx;border-bottom: 0.5rpx rgb(211, 211, 211) solid}
 .fruit-board form button {width: 200rpx;height: 70rpx;line-height: 70rpx;margin: 10rpx 20rpx;}
 .btn {display: flex;flex-direction: row;justify-content: center}
-
 .InfoBottom {height: 30rpx;background: #FFF5EE}
+
+/* 删除水果 */
+.deleteFruit {width: 700rpx;margin: 20rpx 25rpx;display: flex;flex-direction: column;align-items: center}
+.myInput {height: 60rpx;line-height: 60rpx;width: 400rpx;font-size: 28rpx;background-color: white;border-radius: 10rpx;text-align: center;margin: 30rpx 0;}
+.myBtn {width: 100rpx;height: 50rpx;line-height: 50rpx;font-size: 30rpx;background-color: red;text-align: center;border-radius: 10rpx;color: white}
