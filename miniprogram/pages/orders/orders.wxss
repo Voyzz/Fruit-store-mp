@@ -65,6 +65,7 @@
 }
 
 .orders-footer{
+  background-color: white;
     position: fixed;
     bottom: 0;
     left: 0;

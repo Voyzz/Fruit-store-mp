@@ -11,7 +11,9 @@ Page({
   },
 
   onLoad(e) {
-    var self = this
+    // var self = this
+    // self.getTotalPrice();
+    // self.selectAll();
   },
 
   onShow() {
@@ -22,7 +24,14 @@ Page({
         hasList: true,
       });
     } 
+    self.selectAll();
     self.getTotalPrice();
+  },
+
+  onHide: function () {
+    var self = this
+    self.getTotalPrice();
+    self.selectAll();
   },
 
   /**

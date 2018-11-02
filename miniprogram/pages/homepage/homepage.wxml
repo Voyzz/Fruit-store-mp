@@ -19,6 +19,7 @@
 </view>
 
 <!-- 商品图 -->
+<view class='extra'></view>
 <view class='fruit-container'>
   <!-- 水果信息卡片 -->
   <block wx:for="{{fruitInfo}}" wx:key='fruitID'>
@@ -39,10 +40,10 @@
             <text>￥{{item.price}}</text>
             <text style='font-size:20rpx;'>/{{item.unit}}</text>
           </view>
-          <!-- 销量图标 -->
-          <view class='like-image' catchtap="addCartByHome" data-_id="{{item._id}}">
-            <image src='../../images/icon/cart3.png'></image>
-          </view>
+          <!-- 购物车 -->
+          <!-- <view class='like-image' catchtap="addCartByHome" data-_id="{{item._id}}"> -->
+            <image src='../../images/icon/cart3.png' mode='aspectFit' catchtap="addCartByHome" data-_id="{{item._id}}"></image>
+          <!-- </view> -->
           <!-- 销量 -->
           <!-- <view class='like-num'>添加</view>  -->
         </view>

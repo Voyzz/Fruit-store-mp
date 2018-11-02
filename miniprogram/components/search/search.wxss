@@ -39,7 +39,7 @@
   width: 150rpx;
   height: 70rpx;
   margin-right: 0rpx;
-  background-color:rgba(250, 61, 165, 0.973);
+  background-color:rgb(248, 71, 115);
   font-size: 28rpx;
   align-items: center;
   border-top-left-radius: 0rpx;
