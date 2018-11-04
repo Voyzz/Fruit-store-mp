@@ -21,7 +21,7 @@
       <input name='unit' placeholder='单位'></input>
       <input name='purchaseFreq' placeholder='访问量'></input>
       <textarea name='detail' placeholder='详细信息'></textarea>
-      <textarea name='service' placeholder='售后服务'></textarea>
+      <!-- <textarea name='service' placeholder='售后服务'></textarea> -->
       <input name='myClass' placeholder='今日特惠（1或0）'></input>
       <input name='recommend' placeholder='店主推荐（1或0）'></input>
       <view class='btn'>

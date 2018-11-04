@@ -1,5 +1,6 @@
 .form-box{
-    padding-left: 30rpx;
+    padding: 30rpx;
+    margin-top: 20rpx;color: rgb(165, 164, 164)
 }
 .form-box input{
     height: 90rpx;
@@ -12,3 +13,7 @@
 .form-box button{
     margin:30rpx 30rpx 0 0;
 }
+
+.slider {margin-top: 20rpx;color: rgb(165, 164, 164)}
+
+.message {margin: 20rpx;border-radius: 20rpx;border: 0.5rpx solid #adadad;padding: 20rpx;}

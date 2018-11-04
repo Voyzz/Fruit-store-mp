@@ -5,7 +5,7 @@
 <mySearch></mySearch>
 
 <!-- 轮播图 -->
-<view style='height:500rpx;width:100%'>
+<view style='height:500rpx;width:100%'> 
   <swiper></swiper>
 </view>
 
@@ -26,7 +26,7 @@
     <view class='fruit-item' bindtap='tapToDetail' data-fID="{{item._id}}">
       <!-- 图片 -->
       <view class='fruit-image'>
-        <image src='{{item.imgUrl}}'></image>
+        <image src='{{item.imgUrl}}' mode='aspectFill'></image>
       </view>
       <!-- 其他信息 -->
       <view class='fruit-info'>
@@ -38,11 +38,11 @@
           <!-- 价格 -->
           <view class='price'>
             <text>￥{{item.price}}</text>
-            <text style='font-size:20rpx;'>/{{item.unit}}</text>
+            <text class='unit'>/{{item.unit}}</text>
           </view>
           <!-- 购物车 -->
           <!-- <view class='like-image' catchtap="addCartByHome" data-_id="{{item._id}}"> -->
-            <image src='../../images/icon/cart3.png' mode='aspectFit' catchtap="addCartByHome" data-_id="{{item._id}}"></image>
+          <image src='../../images/icon/cart4.png' mode='aspectFit' catchtap="addCartByHome" data-_id="{{item._id}}"></image>
           <!-- </view> -->
           <!-- 销量 -->
           <!-- <view class='like-num'>添加</view>  -->

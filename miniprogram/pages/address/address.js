@@ -3,12 +3,13 @@ Page({
     address: {
       name: '',
       phone: '',
-      detail: '',
+      // detail: ''
+      detail: 0,
+      message: ""
     }
   },
   onLoad() {
     var self = this;
-
     wx.getStorage({
       key: 'address',
       success: function (res) {
@@ -17,10 +18,12 @@ Page({
         })
       }
     })
+
   },
   formSubmit(e) {
     const value = e.detail.value;
     if (value.name && value.phone && value.detail) {
+      // console.log(value)
       wx.setStorage({
         key: 'address',
         data: value,

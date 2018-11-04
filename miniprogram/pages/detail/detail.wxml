@@ -2,7 +2,7 @@
 <view class='detail-container'>
   <!-- 图片 -->
   <view class='detail-image'>
-    <image src="{{fruitDetail.imgUrl}}"></image>
+    <image src="{{fruitDetail.imgUrl}}" mode='aspectFill'></image>
   </view>
 
   <!-- 详细信息 -->
@@ -40,11 +40,10 @@
 
   <!-- 底部导航 -->
   <view class='detail-nav'>
+    <!-- 购物车 -->
     <view class='cart' bindtap='goToCart'>
-      <view style='width:70rpx;height:70rpx;margin:0'>
-        <image src="../../images/icon/cart2.png" style='width:70rpx;height:65rpx;margin:5rpx' mode='scaleToFill'></image>
-      </view>
-      <view style='font-size:20rpx;height:30rpx;line-height:30rpx;'>购物车</view>
+      <image src="../../images/icon/cart3.png" mode='scaleToFill'></image>
+      <view>购物车</view>
     </view>
     <view class='addToCart' bindtap='addToCart'>加入购物车</view>
     <view class='buy' bindtap='toBuy'>立即购买</view>

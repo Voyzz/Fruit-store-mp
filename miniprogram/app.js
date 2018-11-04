@@ -6,6 +6,7 @@ App({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
+        env: 'voyz-cloud-86f82a',
         traceUser: true,
       })
     }
@@ -15,11 +16,13 @@ App({
       carts:[],  //购物车
       tmpNum: 0,
       tempFilePaths: "",
-      admin:["Mr.Voyz"]
+      admin:["Mr.Voyz"],
+      openId: null
     }
   },
 
   // --------------常用----------------
+
   // 判断购物车中是否有重复后添加购物车
   isNotRepeteToCart: function (newCartItem) {
     var self = this

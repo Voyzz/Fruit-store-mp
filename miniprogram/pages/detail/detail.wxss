@@ -20,6 +20,8 @@ page {background-color: rgb(245, 249, 253)}
 /* 底部导航 */
 .detail-nav {position: fixed;display: flex;bottom: 0;box-shadow:0 0 8rpx 0;height: 100rpx;width: 750rpx;line-height: 100rpx;text-align: center}
 .detail-nav .cart {background-color: white;width: 120rpx;padding-top: 0rpx;display: flex;flex-direction: column;justify-content: start;align-items: center;}
+.detail-nav .cart image {width:75rpx;height:55rpx;margin:10rpx 0 0 0rpx;padding:0 13rpx 5rpx 0;}
+.detail-nav .cart view {font-size:18rpx;height:30rpx;line-height:30rpx;}
 .detail-nav .addToCart {background-color: orange;flex: 1;color: white}
 .detail-nav .buy {background-color: rgb(245, 71, 37);width: 320rpx;color: white}
 

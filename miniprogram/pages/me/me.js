@@ -6,37 +6,22 @@ Page({
     orders: [],
     hasAddress: false,
     address: {},
-    isAdmin: false
+    isAdmin: null,
+    openid: '',
+    adiminArr: [
+      '',
+      'oA9Ke4tObqwxqNSfALdVZPkVv7Yc'
+    ]
   },
   onLoad() {
-    var self = this;
-    
-    /**
-     * 获取用户信息
-     */
-    // wx.getUserInfo({
-    //   success: function (res) {
-    //     self.setData({
-    //       thumb: res.userInfo.avatarUrl,
-    //       nickname: res.userInfo.nickName
-    //     })
-    //   }
-    // })
-
-      /**
-       * 发起请求获取订单列表信息
-       */
-      // wx.request({
-      //   url: 'http://www.gdfengshuo.com/api/wx/orders.txt',
-      //   success(res) {
-      //     self.setData({
-      //       orders: res.data
-      //     })
-      //   }
-      // })
+    var that = this;
+    that.getOpenid();
+    // console.log(that.data)
   },
+
   onShow() {
     var self = this;
+    // console.log(self.data)
     /**
      * 获取本地缓存 地址信息
      */
@@ -50,6 +35,24 @@ Page({
       }
     })
   },
+
+  // 获取用户openid
+  getOpenid() {
+    var that = this;
+    wx.cloud.callFunction({
+      name: 'add',
+      complete: res => {
+        console.log('云函数获取到的openid: ', res.result.openId)
+        var openid = res.result.openId;
+        var isAdmin = null;
+        that.setData({
+          openid: openid,
+          isAdmin: that.data.adiminArr.indexOf(openid)
+        })
+      }
+    })
+  },
+
   /**
    * 发起支付请求
    */

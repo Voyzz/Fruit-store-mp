@@ -2,8 +2,17 @@
     <view class="form-box">
         <form bindsubmit="formSubmit">
             <input value="{{address.name}}" name="name" placeholder="姓名"/>
-            <input type="number" name="phone" value="{{address.phone}}" placeholder="电话号码"/>
-            <input name="detail" value="{{address.detail}}" placeholder="宿舍楼（如西36、东20）"/>
+            <input type="digit" name="phone" value="{{address.phone}}" placeholder="电话号码"/>
+            <!-- <input name="detail" value="{{address.detail}}" placeholder="宿舍楼（如西36、东20）"/> -->
+            <!-- <slider  name="detail" value="{{address.aptNum}} min='1' max='60' show-value/> -->
+            <view class='slider'>
+              <view>宿舍楼号：</view>
+              <slider name="detail" min='0' max='60' show-value value="{{address.detail}}"></slider>
+            </view>
+            <view>备注：</view>
+            <view class='message'>
+              <textarea name="message" value="{{address.message}}"></textarea>
+            </view>
             <button form-type="submit">保存</button>
         </form>
     </view>

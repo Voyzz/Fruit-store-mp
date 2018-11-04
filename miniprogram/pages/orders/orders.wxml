@@ -1,10 +1,11 @@
 <view class="main">
-    <view style='color: #adadad;font-size: 34rpx;padding:20rpx 35rpx;border-bottom:0.5rpx #ededed solid;'>请选择收货地址：</view>
+    <view style='color: #adadad;font-size: 34rpx;padding:20rpx 35rpx;border-bottom:0.5rpx #ededed solid;'>收货地址和备注：</view>
     <navigator url="../address/address">
         <view wx:if="{{hasAddress}}" class="orders-address">
             <text class="orders-address-name">收货人: {{address.name}}</text>
-            <text class="orders-address-phone">电话: {{address.phone}}</text>
+            <view class="orders-address-phone">电话: {{address.phone}}</view>
             <view class="orders-address-detail">宿舍楼: {{address.detail}}</view>
+            <view class="orders-address-detail">备注: {{address.message}}</view>
         </view>
         <view wx:else class="orders-no-address">添加收货地址</view>
     </navigator>

@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -51,7 +51,19 @@
 				{
 					"id": -1,
 					"name": "后台",
-					"pathName": "pages/bgInfo/bgInfo"
+					"pathName": "pages/bgInfo/bgInfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "me",
+					"pathName": "pages/me/me",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "pages/address/address"
 				}
 			]
 		}

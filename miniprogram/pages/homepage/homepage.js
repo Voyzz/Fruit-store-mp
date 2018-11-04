@@ -1,10 +1,9 @@
 // miniprogram/pages/homepage/homepage.js
+
+
 const app = getApp()
 
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     swiperImgNo: 1,
     imgSwiperUrl: '',
@@ -16,19 +15,26 @@ Page({
       { id: 3, name: "店主推荐" },
     ],
     activeTypeId: 0,
-    isShow:true
+    isShow:true,
+    openid: ''
   },
 
-  // 转发
-  onShareAppMessage: function (res) {
-    return {
-      title: '水果园byVoyz',
-      imageUrl: '../../images/icon/fruit.jpg',
-      path: '/pages/homepage/homepage'
-    }
+  // 获取用户openid
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'add',
+      complete: res => {
+        // console.log('云函数获取到的openid: ', res.result.openId)
+        var openid = res.result.openId;
+        that.setData({
+          openid: openid
+        })
+      }
+    })
   },
 
-  // 加入购物车
+  // ------------加入购物车------------
   addCartByHome: function(e) {
     // console.log(e.currentTarget.dataset._id)
     var self = this
@@ -107,9 +113,7 @@ Page({
   },
 
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  // ------------生命周期函数------------
   onLoad: function (options) {
     var that = this
     wx.showLoading({
@@ -118,20 +122,17 @@ Page({
     that.setData({
       isShow: false
     })
-
+    // 获取openId
+    this.getOpenid();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
     // console.log(getCurrentPages()["0"].data)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
+    var that = this
+    // console.log(that.data)
     app.getInfoFromSet('fruit-board', {},
       e => {
         // console.log(e.data)
@@ -144,59 +145,28 @@ Page({
     )
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
+    return {
+      title: '水果园byVoyz',
+      imageUrl: '../../images/icon/fruit.jpg',
+      path: '/pages/homepage/homepage'
+    }
+  }
 
-  },
-
-
-  // 上传图片到云存储
-  // uploadImg:function(){
-  //   wx.chooseImage({
-  //     count: 9,
-  //     sourceType: ['album', 'camera'],
-  //     success(res) {
-  //       let _this = getCurrentPages()['0']
-  //       // tempFilePath可以作为img标签的src属性显示图片
-  //       const tempFilePaths = res.tempFilePaths
-  //       console.log(tempFilePaths[0])
-  //       app.upToClound('imgSwiper', `swiperImg${_this.data.swiperImgNo}.jpg`,tempFilePaths[0])
-  //       _this.data.swiperImgNo += 1
-  //       if(_this.data.swiperImgNo>3){
-  //         _this.data.swiperImgNo = 1
-  //       }
-  //     }
-  //   })
-
-  // },
 })
