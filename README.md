@@ -6,10 +6,13 @@
 - 腾讯云云支持（数据库、CDN、云函数）
 - 又拍云云支持（CDN）
 
+## 小程序展示
+![展示.jpg](http://voyz-image.test.upcdn.net/2018/11/06/dc39b34c8b6603634c483344b2df2cb8.jpg)
+
+
 ## 项目结构
-![Snip20181106_23.png](http://voyz-image.test.upcdn.net/2018/11/06/3d476e0161b416803a9d7ce8c0997acc.png)
 
-
+![代码结构.png](http://voyz-image.test.upcdn.net/2018/11/06/357e874d19822299d72b4d768cc6f4a5.png)
 
 ## 技术栈  
 
