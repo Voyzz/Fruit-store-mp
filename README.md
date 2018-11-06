@@ -7,7 +7,7 @@
 - 又拍云云支持（CDN）
 
 ## 小程序展示
-![展示.jpg](http://voyz-image.test.upcdn.net/2018/11/06/dc39b34c8b6603634c483344b2df2cb8.jpg)
+![展示.jpg](http://voyz-image.test.upcdn.net/2018/11/06/ddb22f2c7e432005f8c2f9d531d3bf31.jpg)
 
 
 ## 项目结构
