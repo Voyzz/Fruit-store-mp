@@ -7,6 +7,7 @@
 - 又拍云云支持（CDN）
 
 ## 项目结构
+![Snip20181106_23.png](http://voyz-image.test.upcdn.net/2018/11/06/3d476e0161b416803a9d7ce8c0997acc.png)
 
 
 
