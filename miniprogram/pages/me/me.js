@@ -6,7 +6,7 @@ Page({
     orders: [],
     hasAddress: false,
     address: {},
-    isAdmin: null,
+    isAdmin: -1,
     openid: '',
     adiminArr: [
       '',

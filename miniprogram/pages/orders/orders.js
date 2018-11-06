@@ -76,8 +76,9 @@ Page({
         title: "需支付[" + this.data.total + "]元",
       })
     }else{
-      wx.showToast({
-        title: '请填写收货地址',
+      wx.showModal({
+        title: 'Oh No',
+        content: '请填写收货地址~',
       })
     }
     
