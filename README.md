@@ -5,6 +5,7 @@
 - [我的博客](http://blog.voyz.com)
 
 ## 项目说明
+![小程序码1.png](http://voyz-image.test.upcdn.net/2018/11/06/d258b57770d24571f1e2e6ea2873a971.png)  
 `微信支付开通审核中，下一版本开通微信支付` 
 
 - 项目已上线待投入使用
@@ -47,10 +48,7 @@
 {  
 "cloudfunctionRoot": "cloudfunctions/"  
 }  
-```  
-![Snip20181106_34.png](http://voyz-image.test.upcdn.net/2018/11/06/53603c67dea64e2be2e6ec500ddb36ea.png)  
-
-
+```   
 
 ## 项目结构
 
