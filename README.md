@@ -2,7 +2,7 @@
  
 - [项目地址](https://github.com/Voyzz/Fruit-store-mp)   
   `git clone https://github.com/Voyzz/Fruit-store-mp`
-- [我的博客](http://blog.voyz.com)
+- [我的博客](http://blog.voyz.vip)
 
 ## 项目说明
 ![小程序码.jpg](http://voyz-image.test.upcdn.net/2018/11/06/e73d196b310001b803c4d7abe72a5a28.jpg)
