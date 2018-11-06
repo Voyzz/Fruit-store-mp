@@ -5,7 +5,8 @@
 - [我的博客](http://blog.voyz.com)
 
 ## 项目说明
-![小程序码.jpg](http://voyz-image.test.upcdn.net/2018/11/06/612eb1ffa87a2e65314326ca2a5e2240.jpg)
+![小程序码.jpg](http://voyz-image.test.upcdn.net/2018/11/06/e73d196b310001b803c4d7abe72a5a28.jpg)
+
   
 `微信支付开通审核中，下一版本开通微信支付` 
 
