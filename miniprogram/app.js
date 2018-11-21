@@ -17,7 +17,10 @@ App({
       tmpNum: 0,
       tempFilePaths: "",
       admin:["Mr.Voyz"],
-      openId: null
+      openId: null,
+      appid: 'wx0dd8c5c9ebe90a78',
+      mch_id: '1519277861',
+      apikey: 'James487493259359826923695832443'
     }
   },
 
@@ -48,6 +51,14 @@ App({
         this.globalData.carts.push(newCartItem)
       }
     })
+  },
+
+  // 随机数生成函数
+  RndNum: function(n){
+      var rnd = "";
+      for(var i = 0; i<n;i++)
+      rnd += Math.floor(Math.random() * 10);
+      return rnd;
   },
 
 

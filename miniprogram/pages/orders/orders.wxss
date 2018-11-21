@@ -83,7 +83,7 @@
 }
 .orders-footer .orders-footer-btn{
     display: inline-block;
-    width: 240rpx;
+    width: 242rpx;
     text-align: center;
     color: #fff;
     background: rgb(248, 188, 76);
