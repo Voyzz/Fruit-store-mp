@@ -54,13 +54,51 @@ App({
   },
 
   // 随机数生成函数
-  RndNum: function(n){
-      var rnd = "";
-      for(var i = 0; i<n;i++)
-      rnd += Math.floor(Math.random() * 10);
-      return rnd;
+  RndNum: function(){
+    return Math.random().toString(32).substr(2, 15);
   },
 
+  // 获取时间戳
+  CurrentTime: function() {
+    var now = new Date();
+    var year = now.getFullYear();       //年
+    var month = now.getMonth() + 1;     //月
+    var day = now.getDate();            //日
+    var hh = now.getHours();            //时
+    var mm = now.getMinutes();          //分
+    var ss = now.getSeconds();           //秒
+
+    var clock = year.toString();
+    if (month < 10) clock += "0";
+    clock += month;
+    if (day < 10) clock += "0";
+    clock += day;
+    if (hh < 10) clock += "0";
+    clock += hh;
+    if (mm < 10) clock += '0';
+    clock += mm;
+    if (ss < 10) clock += '0';
+    clock += ss;
+    return (clock);
+  },
+
+  // 获得n分钟前的时间戳
+  beforeNowtimeByMin: function(beforetime) {
+    var setFormat = function (x) {
+      if (x < 10) x = "0" + x;
+      return x;
+    }
+    var date = new Date();
+    date.setMinutes(date.getMinutes() - beforetime);
+    var now = "";
+    now = date.getFullYear().toString();
+    now = now + (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    now = now + setFormat(date.getDate());
+    now = now + setFormat(date.getHours());
+    now = now + setFormat(date.getMinutes());
+    now = now + setFormat(date.getSeconds());
+    return now;
+  },
 
   // --------------数据库操作----------------
 
