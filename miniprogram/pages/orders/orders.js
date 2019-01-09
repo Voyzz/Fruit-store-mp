@@ -20,14 +20,14 @@ Page({
     var nonce_str = app.RndNum()
 
     // 获取ip地址
-    wx.request({
-      url: 'http://ip-api.com/json',
-      success: function (e) {
-        console.log(e.data.query);
-        self.setData({
-          spbill_create_ip: e.data.query
-        })
-      }
+    wx.cloud.callFunction({
+      name: 'getIP'
+    }).then(e=>{
+      self.setData({
+        spbill_create_ip: e.result.body.split("query\"\:\"")[1].split("\"\,\"")[0]
+      })
+    }).catch(err=>{
+      console.log(err)
     })
 
     // 获取总价和openid
@@ -38,6 +38,7 @@ Page({
     this.getOpenid();
     this.getTotalPrice();
   },
+  // onReady↑
 
   onShow: function () {
     const self = this;
@@ -82,7 +83,7 @@ Page({
     })
   },
   
-  // 去支付
+  // -------------支付！！------------------
   toPay() {
     var that = this
     if (that.data.hasAddress) {
@@ -145,6 +146,9 @@ Page({
           '<sign>'+e[0]+'</sign>'+
           '</xml>'
 
+        // console.log(xmlData)
+
+        // 获取prepay_id,发送支付请求
         wx.cloud.callFunction({
           name:'pay',
           data:{
@@ -152,59 +156,44 @@ Page({
           }
         })
         .then(res=>{
-          console.log(res)
+          if(res){
+            var prepay_id = res.result.body.split("<prepay_id><![CDATA[")[1].split("]]></prepay_id>")[0];
+            var timeStamp = Math.round((Date.now() / 1000)).toString()
+            var nonceStr = app.RndNum()
+            var stringB =
+              "appId=" + app.globalData.appid
+              + "&nonceStr=" + nonceStr
+              + "&package=" + 'prepay_id=' + prepay_id
+              + "&signType=MD5"
+              + "&timeStamp=" + timeStamp
+            var paySignTemp = stringB + "&key=" + app.globalData.apikey
+            // 签名MD5加密
+            var paySign = md5.md5(paySignTemp).toUpperCase()
+            // 调起请求
+            wx.requestPayment({
+              appId: app.globalData.appid,
+              timeStamp: timeStamp,
+              nonceStr: nonceStr,
+              package: 'prepay_id=' + prepay_id,
+              signType: 'MD5',
+              paySign: paySign,
+              success: function (e) {
+                console.log(e)
+              }
+            })
+          }
         })
         .catch(err=>{
           console.log(err)
         })
-    
-        // 发起获取prepay_id请求
-        // wx.request({
-        //   url: 'https://api.mch.weixin.qq.com/pay/unifiedorder', 
-        //   method: 'POST',
-        //   header: {
-        //     "content-type":"text/xml",
-        //     "charset": "utf-8"
-        //   },
-        //   data: xmlData,
-        //   success(res) {
-        //     if (res) { 
-        //       // 得到prepay_id
-        //       // console.log(res.data)
-        //       var prepay_id = res.data.split("<prepay_id><![CDATA[")[1].split("]]></prepay_id>")[0];
-        //       var timeStamp = Math.round((Date.now()/1000)).toString()
-        //       var nonceStr = app.RndNum()
-        //       var stringB =
-        //         "appId=" + app.globalData.appid
-        //         + "&nonceStr=" + nonceStr
-        //         + "&package=" + 'prepay_id=' + prepay_id
-        //         + "&signType=MD5"
-        //         + "&timeStamp=" + timeStamp
-        //       var paySignTemp = stringB + "&key=" + app.globalData.apikey
-        //       console.log(paySignTemp)
-        //       // 签名MD5加密
-        //       var paySign = md5.md5(paySignTemp).toUpperCase()
-        //       console.log(paySign)
-              
-        //       wx.requestPayment({
-        //           appId: app.globalData.appid,
-        //           timeStamp: timeStamp,
-        //           nonceStr: nonceStr,
-        //           package: 'prepay_id=' + prepay_id,
-        //           signType: 'MD5',
-        //           paySign: paySign,
-        //           success: function(e){
-        //             console.log(e)
-        //           }
-        //         })
-        //       }
-        //   }
-        // })
 
+      // end获取openid
       })
 
-      
-    }else{
+    // end if 地址  
+    }
+
+    else{
       wx.showModal({
         title: 'Oh No',
         content: '请填写收货地址~',
