@@ -23,11 +23,20 @@ Page({
     wx.cloud.callFunction({
       name: 'getIP'
     }).then(e=>{
-      self.setData({
-        spbill_create_ip: e.result.body.split("query\"\:\"")[1].split("\"\,\"")[0]
-      })
+      if(e){
+        let spbill_create_ip = e.result.body.split("query\"\:\"")[1].split("\"\,\"")[0]
+        console.log("IP地址为：" + spbill_create_ip)
+        self.setData({
+          spbill_create_ip: spbill_create_ip
+        })
+      }
     }).catch(err=>{
-      console.log(err)
+      if (err) {
+        wx.showModal({
+          title: '错误',
+          content: '请您重新下单~',
+        })
+      }
     })
 
     // 获取总价和openid
@@ -184,7 +193,12 @@ Page({
           }
         })
         .catch(err=>{
-          console.log(err)
+          if(err){
+            wx.showModal({
+              title: '错误',
+              content: '请您重新下单~',
+            })
+          }
         })
 
       // end获取openid

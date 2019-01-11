@@ -41,7 +41,7 @@ page {background-color: rgb(245, 249, 253)}
 }
 .goods-tab-nav.on {color: rgba(255, 132, 132, 0.979);border-bottom: 5rpx solid rgba(255, 132, 132, 0.979);
 }
-.theDetail {padding: 40rpx;}
+.theDetail {padding: 40rpx;font-size: 45rpx;color: grey;text-align: center}
 .WxComment {padding: 0;margin: 0;}
 
 /* 评论 */

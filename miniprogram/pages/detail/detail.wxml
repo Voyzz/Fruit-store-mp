@@ -1,9 +1,20 @@
 <!--miniprogram/pages/detail/detail.wxml-->
 <view class='detail-container'>
-  <!-- 图片 -->
-  <view class='detail-image'>
-    <image src="{{fruitDetail.imgUrl}}" mode='aspectFill'></image>
+
+  <view class='swiperContainer'>
+    <swiper class="detail-image" autoplay="true" interval="5000" circular="true">
+      <block wx:for="{{fruitDetail.tmpUrlArr}}" wx:key="id">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="750rpx" height="500rpx" mode='aspectFill'/>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
+
+  <!-- 图片 -->
+  <!-- <view class='detail-image' wx:for="{{fruitDetail.tmpUrlArr}}" wx:key="tmpUrl">
+    <image src="{{item}}" mode='aspectFill'></image>
+  </view> -->
 
   <!-- 详细信息 -->
   <view class='detail-info'>
@@ -15,7 +26,7 @@
     <!-- 第二行 -->
     <view class='line2'>
       <view class='price'>价格:￥{{fruitDetail.price}}</view>
-      <view class='purchaseFreq'>已售 {{fruitDetail.purchaseFreq}} 份</view>
+      <!-- <view class='purchaseFreq'>已售 {{fruitDetail.purchaseFreq}} 份</view> -->
     </view>
   </view>
 
@@ -23,18 +34,25 @@
   <view class='other-info'>
     <!-- 选项卡 -->
     <view class="goods-tab-box">
-        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
+        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">详情</view>
         <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">评论</view>
     </view>
+
     <!-- 评论 -->
     <view class="goods-content">
         <view wx:if="{{curIndex === 1}}" class="WxComment">
               <WxComment tipOne="powered by Voyz_Shen" tipTwo="" submitBtnText="评论" articleID="{{articleID}}" contentLen='1'></WxComment>
         </view>
+
         <!-- <view wx:if="{{curIndex === 1}}">{{fruitDetail.service}}</view> -->
-        <view wx:if="{{curIndex === 0}}" class='theDetail'>{{fruitDetail.detail}}</view>
+        <view wx:if="{{curIndex === 0}}" class='theDetail'>
+          {{fruitDetail.detail}}
+        </view>
     </view>
   </view>
+
+  
+
 
   
 

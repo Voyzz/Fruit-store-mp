@@ -11,7 +11,7 @@ Page({
     typeCat: [
       { id: 0, name: "美味鲜果" },
       { id: 1, name: "今日特惠" },
-      { id: 2, name: "销量排行" },
+      { id: 2, name: "新鲜上架" },
       { id: 3, name: "店主推荐" },
     ],
     activeTypeId: 0,
@@ -83,7 +83,7 @@ Page({
         break;
       // 销量排行
       case '2':
-        app.getInfoByOrder('fruit-board','purchaseFreq','desc',
+        app.getInfoByOrder('fruit-board','time','desc',
           e => {
             getCurrentPages()["0"].setData({
               fruitInfo: e.data

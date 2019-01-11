@@ -104,7 +104,7 @@ Page({
     })
     app.getInfoWhere('fruit-board', { _id: e._id },
       e => {
-        // console.log(e.data["0"])
+        console.log(e.data["0"])
         that.setData({
           fruitDetail: e.data["0"]
         })
