@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "我的主页"
+  "navigationBarTitleText": "我的主页",
+  "enablePullDownRefresh": true
 }

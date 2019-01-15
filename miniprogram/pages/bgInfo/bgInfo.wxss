@@ -23,9 +23,12 @@ Page {background: #FFF5EE}
 /* 删除水果 */
 .deleteFruit {width: 700rpx;margin: 20rpx 25rpx;display: flex;flex-direction: column;align-items: center}
 .myInput {height: 60rpx;line-height: 60rpx;width: 400rpx;font-size: 28rpx;background-color: white;border-radius: 10rpx;text-align: center;margin: 30rpx 0;}
-.myBtn {width: 100rpx;height: 50rpx;line-height: 50rpx;font-size: 30rpx;background-color: red;text-align: center;border-radius: 10rpx;color: white}
-.theList {background-color: white;width: 680rpx;margin: 10rpx 35rpx;}
-.theList .listItem {display: flex;flex-direction: row;justify-content: space-between;padding: 10rpx 20rpx;}
+.Btns {display: flex;flex-direction: row;align-items: center}
+.downBtn {width: 70rpx;height: 40rpx;line-height: 40rpx;font-size: 20rpx;background-color: rgba(255, 37, 37, 0.767);text-align: center;border-radius: 10rpx;color: white;margin: 5rpx;}
+.changeBtn {width: 70rpx;height: 40rpx;line-height: 40rpx;font-size: 20rpx;background-color: rgba(187, 184, 40, 0.767);text-align: center;border-radius: 10rpx;color: white;margin: 5rpx;}
+.upBtn {width: 70rpx;height: 40rpx;line-height: 40rpx;font-size: 20rpx;background-color: rgba(17, 156, 17, 0.767);text-align: center;border-radius: 10rpx;color: white;margin: 5rpx;}
+.theList {width: 680rpx;margin: 10rpx 35rpx;}
+.theList .listItem {display: flex;flex-direction: row;justify-content: space-between;padding: 13rpx 20rpx;height: 50rpx;line-height: 50rpx}
 
 
 page {

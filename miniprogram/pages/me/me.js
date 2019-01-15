@@ -15,7 +15,7 @@ Page({
   },
   onLoad() {
     var that = this;
-    that.getOpenid();
+    that.getOpenidAndOrders();
     // console.log(that.data)
   },
 
@@ -35,9 +35,19 @@ Page({
       }
     })
   },
+  onPullDownRefresh: function () {
+    var that = this
+    that.getOpenidAndOrders()
+    var timer
+
+    (timer = setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 500));
+
+  },
 
   // 获取用户openid
-  getOpenid() {
+  getOpenidAndOrders() {
     var that = this;
     wx.cloud.callFunction({
       name: 'add',
@@ -49,36 +59,35 @@ Page({
           openid: openid,
           isAdmin: that.data.adiminArr.indexOf(openid)
         })
-      }
-    })
-  },
-
-  /**
-   * 发起支付请求
-   */
-  payOrders() {
-    wx.requestPayment({
-      timeStamp: 'String1',
-      nonceStr: 'String2',
-      package: 'String3',
-      signType: 'MD5',
-      paySign: 'String4',
-      success: function (res) {
-        console.log(res)
-      },
-      fail: function (res) {
-        wx.showModal({
-          title: '支付提示',
-          content: '<text>',
-          showCancel: false
+        app.getInfoWhere('order_master',{
+          openid: openid
+        },e=>{
+          console.log(e.data)
+          var tmp = []
+          var len = e.data.length
+          for (var i = 0; i < len;i++){
+            tmp.push(e.data.pop())
+          }
+          that.setData({
+            orders: tmp
+          })
         })
       }
     })
   },
 
+  
+
   goToBgInfo: function() {
     wx.navigateTo({
       url: '/pages/bgInfo/bgInfo',
     })
+  },
+
+  goToBgManage: function () {
+    wx.navigateTo({
+      url: '/pages/bgManage/bgManage',
+    })
   }
+
 })

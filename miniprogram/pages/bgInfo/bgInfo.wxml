@@ -2,29 +2,58 @@
 <!-- 选项卡 -->
 <view class='tapCard'>
   <view class="addCard {{cardNum === 1 ? 'tapOn':'tapOff'}} " bindtap='tapTo1'>添加水果</view>
-  <view class="delCard {{cardNum === 2 ? 'tapOn':'tapOff'}} " bindtap='tapTo2'>删除水果</view>
+  <view class="delCard {{cardNum === 2 ? 'tapOn':'tapOff'}} " bindtap='tapTo2'>上架修改</view>
   <view class="deliver {{cardNum === 3 ? 'tapOn':'tapOff'}} " bindtap='tapTo3'>送货管理</view>
 </view>
 
 <!-- 添加水果 -->
 <view class='addFruit' wx:if="{{cardNum === 3}}">
-  
+  <button bindtap='offLine'>打烊？</button>
 </view>
 
-<!-- 删除水果 -->
+<!-----------------------!!!! 上架修改 !!!!---------------------------->
 <view class='deleteFruit' wx:if="{{cardNum === 2}}">
-  <view></view>
+  
+  <!-- 上下架水果 -->
+  <view class='theList'>
+
+    <!-- 线上水果 -->
+    <view class="weui-cells__title">线上水果</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view wx:for="{{manageList}}" wx:key="time" class='listItem' wx:if="{{item.onShow}}">
+        <view>{{item.name}}</view>
+        <view class='Btns'>
+          <!-- <view class='changeBtn'>修改</view> -->
+          <view class='downBtn' bindtap='downFromLine' id="{{item._id}}">下架</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 线下水果 -->
+    <view class="weui-cells__title">线下水果</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view wx:for="{{manageList}}" wx:key="time" class='listItem' wx:if="{{!item.onShow}}">
+        <view>{{item.name}}</view>
+        <view class='Btns'>
+          <!-- <view class='changeBtn'>修改</view> -->
+          <view class='upBtn' bindtap='upToLine' id="{{item._id}}">上架</view>
+        </view>
+        
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 打烊 -->
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="offLine">打烊/营业</button>
+  </view>
+
+  <!-- 删除水果 -->
   <view class='myInput'>
     <input placeholder='输入要删除水果的名称' bindinput='getDelFruitId'></input>
   </view>
-  <view bindtap='deleteFruit' class='myBtn'>删除</view>
-  <view class='theList'>
-    <view wx:for="{{manageList}}" wx:key="time" class='listItem'>
-      <view>{{item.name}}</view>
-      <view>删除</view>
-    </view>
-  </view>
-  
+  <view bindtap='deleteFruit' class='downBtn'>删除</view>
 
 </view>
 

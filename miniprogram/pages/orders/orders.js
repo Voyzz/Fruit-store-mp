@@ -92,48 +92,76 @@ Page({
     })
   },
   
-  // -------------支付！！------------------
+  // -------------!! 支付！！------------------
   toPay() {
     var that = this
     if (that.data.hasAddress) {
-      // 地址信息
-      console.log(that.data.address)
-      // 总价信息
-      console.log(that.data)
-      // 支付后订单信息
-      that.getListAfterPay(that)
 
-      // 获取prepay_id，所需的签名字符串
+      // ------获取prepay_id，所需的签名字符串------
       var p = new Promise((resolve,reject)=>{
-        // 生成订单号
-        var out_trade_no = (new Date().getTime() + app.RndNum(6)).toString()
+      // 生成订单号
+      var out_trade_no = (new Date().getTime() + app.RndNum(6)).toString()
 
-        // 生成字符串
-        var stringA = 
-          "appid="+app.globalData.appid
-        + "&attach=test"
-        + "&body=JSAPItest"
-        + "&device_info=WEB"
-        + "&mch_id="+app.globalData.mch_id
-        + "&nonce_str="+that.data.nonce_str
-        + "&notify_url=http://www.weixin.qq.com/wxpay/pay.php"
-        + "&openid="+that.data.openid
-        + "&out_trade_no="+out_trade_no
-        + "&spbill_create_ip="+that.data.spbill_create_ip
-        + "&time_expire="+app.beforeNowtimeByMin(-15)
-        + "&time_start="+app.CurrentTime()
-        + "&total_fee="+parseInt(that.data.total*100)
-        + "&trade_type=JSAPI";
+      // -----生成字符串------
+      var stringA = 
+        "appid="+app.globalData.appid
+      + "&attach=test"
+      + "&body=JSAPItest"
+      + "&device_info=WEB"
+      + "&mch_id="+app.globalData.mch_id
+      + "&nonce_str="+that.data.nonce_str
+      + "&notify_url=http://www.weixin.qq.com/wxpay/pay.php"
+      + "&openid="+that.data.openid
+      + "&out_trade_no="+out_trade_no
+      + "&spbill_create_ip="+that.data.spbill_create_ip
+      + "&time_expire="+app.beforeNowtimeByMin(-15)
+      + "&time_start="+app.CurrentTime()
+      + "&total_fee="+parseInt(that.data.total*100)
+      + "&trade_type=JSAPI";
 
-        var stringSignTemp = stringA +"&key="+app.globalData.apikey
-        // 签名MD5加密
-        var sign = md5.md5(stringSignTemp).toUpperCase()
-        // console.log("签名：" + stringSignTemp)
-        
-        // openid
-        var openid = that.data.openid
+      var stringSignTemp = stringA +"&key="+app.globalData.apikey
+      // 签名MD5加密
+      var sign = md5.md5(stringSignTemp).toUpperCase()
+      // console.log("签名：" + stringSignTemp)
+      
+      // openid
+      var openid = that.data.openid
 
-        resolve([sign,openid,out_trade_no])
+      resolve([sign,openid,out_trade_no])
+
+      // ------生成订单信息-------
+      let tmp = that.data.address
+      tmp['schoolName'] = app.globalData.school_Arr[that.data.address['schoolName']]
+      tmp['addressItem'] = app.globalData.address_Arr[that.data.address['addressItem']]
+      tmp['orderTime'] = app.CurrentTime()
+      tmp['orderSuccess'] = true
+      tmp['payTime'] = ''
+      tmp['paySuccess'] = false
+      tmp['sending'] = false
+      tmp['finished'] = false
+
+      const order_master = tmp
+
+      var tmpList = []
+      that.data.orders.forEach((val,idx,obj)=>{
+        tmpList.push([val.name, val.num, val.price])
+      })
+      order_master['fruitList'] = tmpList
+      order_master['total'] = that.data.total
+      order_master['openid'] = that.data.openid
+      order_master['out_trade_no'] = out_trade_no
+
+
+      console.log(order_master)
+      that.setData({
+        address: order_master
+      })
+
+      // 上传数据库
+      app.addRowToSet('order_master', order_master,e=>{
+        console.log("订单状态已修改：【订单生成】"+e)
+      })
+
       })
       p.then(e => {
         // 生成获取prepay_id请求的xml参数
@@ -155,6 +183,7 @@ Page({
           '<sign>'+e[0]+'</sign>'+
           '</xml>'
 
+        var tmpOutNum = e[2]
         // console.log(xmlData)
 
         // 获取prepay_id,发送支付请求
@@ -188,6 +217,24 @@ Page({
               paySign: paySign,
               success: function (e) {
                 console.log(e)
+                // console.log(tmpOutNum)
+                app.getInfoWhere('order_master',{
+                  'out_trade_no': tmpOutNum
+                },e=>{
+                  var orderId = e.data["0"]._id
+                  app.updateInfo('order_master', orderId,{
+                    'paySuccess':true,
+                    'payTime': app.CurrentTime()
+                  },e=>{
+                    console.log("订单状态已修改：【支付成功】"+e)
+                    wx.showToast({
+                      title: '支付成功',
+                    })
+                    wx.switchTab({
+                      url: '../me/me',
+                    })
+                  })
+                })
               }
             })
           }
@@ -196,7 +243,7 @@ Page({
           if(err){
             wx.showModal({
               title: '错误',
-              content: '请您重新下单~',
+              content: '请重新点击支付~',
             })
           }
         })

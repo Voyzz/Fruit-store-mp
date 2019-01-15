@@ -1,2 +1,115 @@
-<!--miniprogram/pages/bgManage/bgManage.wxml-->
-<text>miniprogram/pages/bgManage/bgManage.wxml</text>
+<view class='tapCard'>
+  <view class="addCard {{cardNum === 1 ? 'tapOn':'tapOff'}} " bindtap='tapTo1'>已支付</view>
+  <view class="delCard {{cardNum === 2 ? 'tapOn':'tapOff'}} " bindtap='tapTo2'>已发货</view>
+  <view class="deliver {{cardNum === 3 ? 'tapOn':'tapOff'}} " bindtap='tapTo3'>已送达</view>
+  <view class="deliver {{cardNum === 4 ? 'tapOn':'tapOff'}} " bindtap='tapTo4'>所有订单</view>
+</view>
+
+<!-- 已支付 -->
+<view class='addFruit' wx:if="{{cardNum === 1}}">
+
+<view class='theList'>
+
+  <view class="weui-cells weui-cells_after-title">
+
+    <view wx:for="{{orderList}}" wx:key="idx" class='listItem' wx:if="{{item.paySuccess && !item.sending}}">
+      <view class='f_column'>
+        <view>{{item.name}}</view>
+        <view>{{item.phone}}</view>
+        <view>{{item.schoolName}}/{{item.addressItem}}/{{item.detail}}</view>
+        <view>总价：{{item.total}}</view>
+        <view>订单内容：</view>
+        <view wx:for="{{item.fruitList}}" wx:for-item="fruitArr" wx:key="fruit">{{fruitArr[0]}} × {{fruitArr[1]}}</view>
+        <view>备注：{{item.message}}</view>
+        <view>下单时间：{{item.orderTime}}</view>
+      </view>
+
+      <view class='Btns'>
+        <view class='downBtn' bindtap='boxFruit' id="{{item._id}}">发货</view>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+</view>
+
+<!-- 已发货 -->
+<view class='addFruit' wx:if="{{cardNum === 2}}">
+
+<view class='theList'>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view wx:for="{{orderList}}" wx:key="pay" class='listItem' wx:if="{{item.sending && !item.finished}}">
+      <view class='f_column'>
+        <view>{{item.name}}</view>
+        <view>{{item.phone}}</view>
+        <view>{{item.schoolName}}/{{item.addressItem}}/{{item.detail}}</view>
+        <view>总价：{{item.total}}</view>
+        <view>订单内容：</view>
+        <view wx:for="{{item.fruitList}}" wx:for-item="fruitArr" wx:key="fruit">{{fruitArr[0]}} × {{fruitArr[1]}}</view>
+        <view>备注：{{item.message}}</view>
+        <view>发货时间：{{item.sendingTime}}</view>
+      </view>
+
+      <view class='Btns'>
+        <view class='upBtn' bindtap='sendingFruit' id="{{item._id}}">送达</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+</view>
+
+<!-- 已送达 -->
+<view class='addFruit' wx:if="{{cardNum === 3}}">
+
+<view class='theList'>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view wx:for="{{orderList}}" wx:key="pay" class='listItem' wx:if="{{item.finished}}">
+      <view class='f_column'>
+        <view>{{item.name}}</view>
+        <view>{{item.phone}}</view>
+        <view>{{item.schoolName}}/{{item.addressItem}}/{{item.detail}}</view>
+        <view>总价：{{item.total}}</view>
+        <view>订单内容：</view>
+        <view wx:for="{{item.fruitList}}" wx:for-item="fruitArr" wx:key="fruit">{{fruitArr[0]}} × {{fruitArr[1]}}</view>
+        <view>备注：{{item.message}}</view>
+        <view>送达时间：{{item.finishedTime}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+</view>
+
+<!-- 所有订单 -->
+<view class='addFruit' wx:if="{{cardNum === 4}}">
+
+<view class='theList'>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view wx:for="{{orderList}}" wx:key="pay" class='listItem'>
+      <view class='f_column'>
+        <view>{{item.name}}</view>
+        <view>{{item.phone}}</view>
+        <view>{{item.schoolName}}/{{item.addressItem}}/{{item.detail}}</view>
+        <view>总价：{{item.total}}</view>
+        <view>订单内容：</view>
+        <view wx:for="{{item.fruitList}}" wx:for-item="fruitArr" wx:key="fruit">{{fruitArr[0]}} × {{fruitArr[1]}}</view>
+        <view>备注：{{item.message}}</view>
+        <view>下单时间：{{item.orderTime}}</view>
+        <view>送达时间：{{item.finishedTime}}</view>
+        <view wx:if="{{item.paySuccess}}">状态：未支付</view>
+        <view wx:if="{{item.finished}}">状态：已送达</view>
+        <view wx:if="{{item.paySuccess && !item.sending}}">状态：已支付/待发货</view>
+        <view wx:if="{{item.sending && !item.finished}}">状态：已发货</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+</view>
+
+

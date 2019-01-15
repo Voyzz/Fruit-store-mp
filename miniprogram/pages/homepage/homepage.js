@@ -15,8 +15,9 @@ Page({
       { id: 3, name: "店主推荐" },
     ],
     activeTypeId: 0,
-    isShow:true,
-    openid: ''
+    isShow:true, 
+    openid: '',   
+    offLine:null  //是否维护
   },
 
   // 获取用户openid
@@ -62,9 +63,8 @@ Page({
     switch (e.currentTarget.id) {
       // 全部展示
       case '0':
-        app.getInfoFromSet('fruit-board', {},
+        app.getInfoByOrder('fruit-board', 'time', 'desc',
           e => {
-            // console.log(e.data)
             getCurrentPages()["0"].setData({
               fruitInfo: e.data
             })
@@ -132,15 +132,33 @@ Page({
 
   onShow: function () {
     var that = this
-    // console.log(that.data)
-    app.getInfoFromSet('fruit-board', {},
+    // 水果信息
+    // app.getInfoFromSet('fruit-board', {},
+    //   e => {
+    //     // console.log(e.data)
+    //     getCurrentPages()["0"].setData({
+    //       fruitInfo: e.data,
+    //       isShow: true
+    //     })
+    //     wx.hideLoading()
+    //   }
+    // )
+    app.getInfoByOrder('fruit-board', 'time', 'desc',
       e => {
-        // console.log(e.data)
         getCurrentPages()["0"].setData({
           fruitInfo: e.data,
           isShow: true
         })
         wx.hideLoading()
+      }
+    )
+    // console.log(app.globalData.offLine)
+    // 是否下线
+    app.getInfoWhere('setting', { "option": "offLine" },
+      e => {
+        that.setData({
+          offLine: e.data["0"].offLine
+        })
       }
     )
   },

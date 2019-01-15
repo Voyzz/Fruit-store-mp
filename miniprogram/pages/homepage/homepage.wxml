@@ -1,6 +1,7 @@
-<view class='myHomePage' wx:if="{{isShow}}">
-<!--miniprogram/pages/homepage/homepage.wxml-->
+<!-- 维护 -->
+<view style='height:100%;width:750rpx;background:white;line-height:1200rpx;text-align:center' wx:if="{{offLine}}">打烊啦~~~~~</view>
 
+<view class='myHomePage' wx:if="{{isShow && !offLine}}">
 <!--搜索框-->
 <mySearch></mySearch>
 
@@ -23,7 +24,7 @@
 <view class='fruit-container'>
   <!-- 水果信息卡片 -->
   <block wx:for="{{fruitInfo}}" wx:key='fruitID'>
-    <view class='fruit-item' bindtap='tapToDetail' data-fID="{{item._id}}">
+    <view class='fruit-item' bindtap='tapToDetail' data-fID="{{item._id}}" wx:if="{{item.onShow}}">
       <!-- 图片 -->
       <view class='fruit-image'>
         <image src='{{item.imgUrl}}' mode='aspectFill'></image>

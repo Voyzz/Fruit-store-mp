@@ -1,14 +1,105 @@
 <view class="main">
+
+    <!-- <view class="weui-cells__title">个人信息</view>
+
+    <view class="weui-cells weui-cells_after-title"> -->
+      <!-- 姓名 -->
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+        </view>
+        <view class="weui-cell__bd weui-cell__ft">
+          <input class="weui-input" bindinput='getName'/>
+        </view> -->
+      <!-- </view> -->
+
+      <!-- 手机 -->
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">手机</view>
+        </view>
+        <view class="weui-cell__bd weui-cell__ft">
+          <input class="weui-input" type="digit" bindinput='getPhone'/>
+        </view>
+      </view> -->
+
+      <!-- 校区 -->
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd cell-title">选择校区</view>
+        <view class="weui-cell__ft">
+          <picker range="{{school_Arr}}" value="{{school}}" bindchange="getSchool">
+            <view class="weui-input">{{school_Arr[school]||'选择'}}</view>
+          </picker>
+        </view>
+      </view> -->
+
+      <!-- 详细地址 -->
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd cell-title">详细地址</view>
+        <view class="weui-cell__ft">
+          <picker range="{{address_Arr}}" value="{{address}}" bindchange="getAddress">
+            <view class="weui-input">{{address_Arr[address]||'选择'}}</view>
+          </picker>
+        </view>
+      </view> -->
+
+      <!-- 宿舍楼号 -->
+      <!-- <view class="weui-cell weui-cell_input" wx:if="{{schoolName==='交大' && addressItem==='宿舍楼'}}">
+        <view class="weui-cell__bd cell-title">宿舍楼号</view>
+        <view class="weui-cell__ft">
+          <picker range="{{apartment_Arr}}" value="{{apartment}}" bindchange="getApartment">
+            <view class="weui-input">{{apartment_Arr[apartment]||'选择'}}</view>
+          </picker>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="weui-cells__title">备注信息</view>
+
+    <view class='message'>
+      <textarea name="message" value="{{address.message}}" bindinput="getExtra"></textarea>
+    </view> -->
+
+    <!---------- 按钮 ------------->
+    <!-- <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="addToStorage">保存</button>
+    </view> -->
+
+
     <view class="form-box">
         <form bindsubmit="formSubmit">
             <input value="{{address.name}}" name="name" placeholder="姓名"/>
             <input type="digit" name="phone" value="{{address.phone}}" placeholder="电话号码"/>
-            <!-- <input name="detail" value="{{address.detail}}" placeholder="宿舍楼（如西36、东20）"/> -->
-            <!-- <slider  name="detail" value="{{address.aptNum}} min='1' max='60' show-value/> -->
+            
+            <!-- <view class='school'>
+              <view>校区：</view>
+              <view>
+                <picker range="{{school_Arr}}" value="{{school}}" bindchange="getSchool" name="schoolName">
+                  <view>{{school_Arr[school]||'请选择校区'}}</view>
+                </picker>
+              </view>
+            </view> -->
+
+            <view class="weui-cell__bd cell-title">选择校区:</view>
+            <view class="weui-cell__ft">
+              <picker range="{{school_Arr}}" value="{{address.schoolName}}" name='schoolName'  bindchange="getSchool">
+                {{school_Arr[address.schoolName]||'选择'}}
+              </picker>
+            </view>
+
+            <view class="weui-cell__bd cell-title">详细地址：</view>
+            <view class="weui-cell__ft">
+              <picker range="{{address_Arr}}" value="{{address.addressItem}}" name='addressItem' bindchange="getAddress">
+                <view class="weui-input">{{address_Arr[address.addressItem]||'选择'}}</view>
+              </picker>
+            </view>
+
             <view class='slider'>
               <view>宿舍楼号：</view>
               <slider name="detail" min='0' max='60' show-value value="{{address.detail}}"></slider>
             </view>
+
             <view>备注：</view>
             <view class='message'>
               <textarea name="message" value="{{address.message}}"></textarea>
@@ -16,4 +107,5 @@
             <button form-type="submit">保存</button>
         </form>
     </view>
+
 </view>

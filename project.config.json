@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -70,7 +70,14 @@
 				{
 					"id": -1,
 					"name": "order",
-					"pathName": "pages/orders/orders"
+					"pathName": "pages/orders/orders",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单管理",
+					"pathName": "pages/bgManage/bgManage",
+					"query": ""
 				}
 			]
 		}

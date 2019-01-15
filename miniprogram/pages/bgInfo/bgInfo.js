@@ -21,8 +21,9 @@ Page({
     price:null,   //价格
     unit:null,    //单位
     detail:"",    //描述
-    myClass:0,  //今日特惠
-    recommend:0,//店主推荐
+    myClass:0,    //今日特惠
+    recommend:0,  //店主推荐
+    onShow:true,  //上架
 
     myClass_Arr: [
       '否',
@@ -32,9 +33,10 @@ Page({
       '否',
       '是'
     ],
+    reFresh:null
   },
 
-  //------------------------ 获取信息 ------------------------
+  //------------------------!!! 获取信息 !!!------------------------
   // 获取水果编号
   getFruitID: function (e) {
     this.setData({
@@ -117,27 +119,7 @@ Page({
     })
   },
 
-
-
-  // ------------点击按钮--------------
-  // getInfo: function () {
-  //   var that = this
-  //   // 必要信息
-  //   var { fruitID, name, price, unit, detail, myClass, recommend } = that.data
-  //   var nec_info = { fruitID, name, price, unit, detail, myClass, recommend }
-  //   for (var idx in nec_info) {
-  //     if (nec_info[idx] === null) {
-  //       wx.showModal({
-  //         title: '错误',
-  //         content: '必填信息缺失',
-  //       })
-  //     }
-  //   }
-
-  //   // console.log(nec_info)
-  // },
-
-  // --------------------  选项卡切换  ----------------------
+  // --------------------!!!  选项卡切换  !!!----------------------
   tapTo1: function() {  //添加
     var that = this
     that.setData({
@@ -149,7 +131,7 @@ Page({
     that.setData({
       cardNum: 2
     })
-    console.log(getCurrentPages())
+    // console.log(getCurrentPages())
   }, 
   tapTo3: function () {
     var that = this
@@ -158,14 +140,14 @@ Page({
     })
   },
 
-  // ----------------------  提交操作  ---------------------
+  // ----------------------!!!  提交操作  !!!---------------------
   // 添加水果信息表单
   addFruitInfo: function(e){
     const that = this
     if (that.data.name && that.data.price){
       new Promise((resolve, reject) => {
-        const { fruitID, name, price, unit, detail, myClass, recommend, tmpUrlArr } = that.data
-        const theInfo = { fruitID, name, price, unit, detail, myClass, recommend, tmpUrlArr }
+        const { fruitID, name, price, unit, detail, myClass, recommend, tmpUrlArr, onShow } = that.data
+        const theInfo = { fruitID, name, price, unit, detail, myClass, recommend, tmpUrlArr, onShow }
         theInfo['imgUrl'] = that.data.tmpUrlArr[0]
         theInfo['time'] = parseInt(app.CurrentTime())
         resolve(theInfo)
@@ -194,6 +176,35 @@ Page({
     
   },
 
+  // ----------------------!!!  修改水果参数  !!!----------------------
+  // 上架水果
+  upToLine:function(e){
+    var that = this
+    // console.log(e.currentTarget.id)
+    app.updateInfo('fruit-board', e.currentTarget.id,{
+      onShow: true
+    },e=>{
+      that.getManageList()
+      wx.showToast({
+        title: '已上架',
+      })
+    })
+  },
+  
+  // 下架水果
+  downFromLine: function (e) {
+    var that = this
+    // console.log(e.currentTarget.id)
+    app.updateInfo('fruit-board', e.currentTarget.id, {
+      onShow: false
+    }, e => {
+      that.getManageList()
+      wx.showToast({
+        title: '已下架',
+      })
+    })
+  },
+
   // 绑定删除水果名称参数
   getDelFruitId: function(e) {
     var that = this
@@ -211,15 +222,35 @@ Page({
     // app.deleteInfoFromSet('fruit-board',"葡萄")
     var that = this
     console.log(that.data.delFruitId)
-    app.deleteInfoFromSet('fruit-board', that.data.delFruitId)
+    new Promise((resolve,reject)=>{
+      app.deleteInfoFromSet('fruit-board', that.data.delFruitId)
+    })
+    .then(that.getManageList())
+  },
+
+  // 程序下线打烊
+  offLine: function () {
+    var that = this
+    app.getInfoWhere('setting', {
+      option: "offLine"
+    }, res => {
+      let ch = !res.data["0"].offLine
+      app.updateInfo('setting', res.data["0"]._id,{
+        offLine: ch
+      },e=>{
+        wx.showToast({
+          title: '操作成功',
+        })
+      })
+      // console.log(res)
+    })
   },
 
 
-
   /**
-   * 生命周期函数--监听页面加载
+   * ----------------------!!!  生命周期函数--监听页面加载  !!!----------------------
    */
-  onLoad: function (options) {
+  getManageList:function(){
     var that = this
     app.getInfoByOrder('fruit-board', 'time', 'desc',
       e => {
@@ -228,6 +259,10 @@ Page({
         })
       }
     )
+  },
+
+  onLoad: function (options) {
+    this.getManageList()
   },
 
   /**
@@ -241,7 +276,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getManageList()
   },
 
   /**
@@ -262,6 +297,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    (timer = setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 500));
+
   },
 
   /**
