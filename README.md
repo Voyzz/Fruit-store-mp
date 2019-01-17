@@ -8,8 +8,10 @@
 ![小程序码.jpg](http://voyz-image.test.upcdn.net/2018/11/06/e73d196b310001b803c4d7abe72a5a28.jpg)
 
   
-`微信支付开通审核中，下一版本开通微信支付` 
+~~`微信支付开通审核中，下一版本开通微信支付`~~ 
 
+- 微信支付已开通
+- 后台管理已完成
 - 项目已上线待投入使用
 - 前端采用原生小程序框架MINA开发
 - 后端使用小程序云开发
@@ -17,6 +19,9 @@
 - 又拍云云支持（CDN）
 
 ## 版本说明
+> v1.0.0 | Jan 8, 201p
+>> 主页布局美化、bug修复
+
 > v0.1.11 | Nov 6, 2018
 >> 主页布局美化、bug修复
 
@@ -30,7 +35,8 @@
 >> 功能基本实现
 
 ## 小程序展示
-![展示.jpg](http://voyz-image.test.upcdn.net/2018/11/06/ddb22f2c7e432005f8c2f9d531d3bf31.jpg)
+![Snip20190117_149.png](http://voyz-image.test.upcdn.net/2019/01/17/20774362b08b70bc676458a4375d9f71.png)
+![Snip20190117_150.png](http://voyz-image.test.upcdn.net/2019/01/17/c4484768580d476848b24d21d01d7d9d.png)
 
 
 ## 技术栈  
@@ -42,7 +48,7 @@
 - `小程序云开发` 
 
 ### 微信支付
-`开通中`
+已开通
 
 ### 云开发
 `project.config.json`
@@ -51,10 +57,6 @@
 "cloudfunctionRoot": "cloudfunctions/"  
 }  
 ```   
-
-## 项目结构
-
-![代码结构.png](http://voyz-image.test.upcdn.net/2018/11/06/357e874d19822299d72b4d768cc6f4a5.png)
 
 ## 参考文档
 
