@@ -45,7 +45,7 @@
 - `JavaScript(ES6) `
 - `HTML5、CSS3  `
 - `小程序原生框架MINA ` 
-- `~~Koa2(node.js)~~`
+- ~~Koa2(node.js)~~
 - `小程序云开发` 
 
 ### 微信支付
