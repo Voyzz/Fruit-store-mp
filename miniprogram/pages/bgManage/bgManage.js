@@ -49,7 +49,7 @@ Page({
     console.log(e.currentTarget.id)
     app.updateInfo('order_master', e.currentTarget.id, {
       sending: true,
-      sendingTime: app.CurrentTime()
+      sendingTime: app.CurrentTime_show()
     }, e => {
       that.getAllList()
       wx.showToast({
@@ -64,7 +64,7 @@ Page({
     console.log(e.currentTarget.id)
     app.updateInfo('order_master', e.currentTarget.id, {
       finished: true,
-      finishedTime: app.CurrentTime()
+      finishedTime: app.CurrentTime_show()
     }, e => {
       that.getAllList()
       wx.showToast({

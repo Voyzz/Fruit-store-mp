@@ -10,7 +10,8 @@ Page({
     openid: '',
     adiminArr: [
       '',
-      'oA9Ke4tObqwxqNSfALdVZPkVv7Yc'
+      'oA9Ke4tObqwxqNSfALdVZPkVv7Yc',
+      'oA9Ke4rH2nnqFgFbWIhyQu5bCXPA'
     ]
   },
   onLoad() {

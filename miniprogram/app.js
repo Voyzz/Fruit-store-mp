@@ -90,6 +90,31 @@ App({
     return (clock);
   },
 
+  CurrentTime_show: function () {
+    var now = new Date();
+    var year = now.getFullYear();       //年
+    var month = now.getMonth() + 1;     //月
+    var day = now.getDate();            //日
+    var hh = now.getHours();            //时
+    var mm = now.getMinutes();          //分
+    var ss = now.getSeconds();           //秒
+
+    var clock = year.toString()+"-";
+    if (month < 10) clock += "0";
+    clock += month+"-";
+    if (day < 10) clock += "0";
+    clock += day+" ";
+    if (hh < 10) clock += "0";
+    clock += hh+":";
+    if (mm < 10) clock += '0';
+    clock += mm+":";
+    if (ss < 10) clock += '0';
+    clock += ss;
+
+    return (clock);
+  },
+
+
   // 获得n分钟前的时间戳
   beforeNowtimeByMin: function(beforetime) {
     var setFormat = function (x) {

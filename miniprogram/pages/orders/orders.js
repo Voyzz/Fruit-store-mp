@@ -133,7 +133,7 @@ Page({
       let tmp = that.data.address
       tmp['schoolName'] = app.globalData.school_Arr[that.data.address['schoolName']]
       tmp['addressItem'] = app.globalData.address_Arr[that.data.address['addressItem']]
-      tmp['orderTime'] = app.CurrentTime()
+      tmp['orderTime'] = app.CurrentTime_show()
       tmp['orderSuccess'] = true
       tmp['payTime'] = ''
       tmp['paySuccess'] = false
@@ -224,7 +224,7 @@ Page({
                   var orderId = e.data["0"]._id
                   app.updateInfo('order_master', orderId,{
                     'paySuccess':true,
-                    'payTime': app.CurrentTime()
+                    'payTime': app.CurrentTime_show()
                   },e=>{
                     console.log("订单状态已修改：【支付成功】"+e)
                     wx.showToast({
