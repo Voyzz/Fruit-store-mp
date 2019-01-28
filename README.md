@@ -1,4 +1,7 @@
 # 微信小程序-水果商城
+
+![Snip20190128_1.png](http://voyz-image.test.upcdn.net/2019/01/28/a2f5e319de86108adb4adad67908d27a.png)
+
  
 - [项目地址](https://github.com/Voyzz/Fruit-store-mp)   
   `git clone https://github.com/Voyzz/Fruit-store-mp`
