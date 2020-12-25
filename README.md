@@ -1,6 +1,6 @@
 # 微信小程序-水果商城
 
-<div align=center><img align="center" src="http://voyz-image.test.upcdn.net/2018/11/06/e73d196b310001b803c4d7abe72a5a28.jpg" width="250px"/></div>
+<div align=center><img align="center" src="https://i.loli.net/2020/12/25/skO8EJM3GhuYt6Z.jpg" width="250px"/></div>
 
 [![](https://img.shields.io/badge/Wechat--informational?style=social&logo=wechat)](https://i.loli.net/2020/09/19/jHmZskwtUTF9oOh.png)
 [![](https://img.shields.io/badge/Github--informational?style=social&logo=github)](https://github.com/Voyzz)
@@ -68,9 +68,9 @@ git clone https://github.com/Voyzz/Fruit-store-mp
 
 <span id='show'><span>
 ## 展示
-![Snip20190117_149.png](http://voyz-image.test.upcdn.net/2019/01/17/20774362b08b70bc676458a4375d9f71.png)
+![20774362b08b70bc676458a4375d9f71.png](https://i.loli.net/2020/12/25/WCzAH3m5k9GTQBn.png)
 
-![Snip20190117_150.png](http://voyz-image.test.upcdn.net/2019/01/17/c4484768580d476848b24d21d01d7d9d.png)
+![c4484768580d476848b24d21d01d7d9d.png](https://i.loli.net/2020/12/25/l6qzLnsIEHCrhRt.png)
 
 
 <span id='cloud'><span>
