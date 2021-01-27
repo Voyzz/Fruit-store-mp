@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/我的微信--informational?style=social&logo=wechat)](https://i.loli.net/2020/09/19/jHmZskwtUTF9oOh.png)
 [![](https://img.shields.io/badge/Github--informational?style=social&logo=github)](https://github.com/Voyzz)
 [![](https://img.shields.io/badge/我的邮箱--informational?style=social&logo=gmail)](voyzshen@gmail.com)
-[![](https://img.shields.io/badge/我的Blog--informational?style=social&logo=micro.blog)](http://blog.voyz.vip/)
+[![](https://img.shields.io/badge/Blog--informational?style=social&logo=micro.blog)](http://blog.voyz.vip/)
 
 ![](https://img.shields.io/github/last-commit/Voyzz/Fruit-store-mp?style=for-the-badge)
 ![](https://img.shields.io/npm/l/react-native-swiper-hooks?style=for-the-badge)
