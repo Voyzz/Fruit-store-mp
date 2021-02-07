@@ -42,7 +42,7 @@ git clone https://github.com/Voyzz/Fruit-store-mp
 - 已发布上线
 - 前端采用原生小程序框架开发 
 - 后端采用小程序云开发
-- 腾讯云云支持（数据库、CDN、云函数）
+- 腾讯云云开发（数据库、CDN、云函数）
 - 又拍云云支持（CDN）
 
 <span id='versions'><span>
