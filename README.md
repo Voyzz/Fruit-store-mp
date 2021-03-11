@@ -17,7 +17,7 @@
 > 📚 **Welcomes to provide your valuable comments or suggestions by 'Issues' or my contact information**    
 >> ✨ 欢迎通过”issues“或我的联系方式，为我提供宝贵意见   
 >  
-> 👨🏻‍💻 **Powered by Voyz Shen**   
+> 👨🏻‍💻 **Powered by Voyz Shen**
 > ✨ Shanghai Jiao Tong University, Ctrip
 
 ## 目录
